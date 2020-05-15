@@ -10,13 +10,14 @@
         <!-- Compressed CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
             integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-        <!-- Compressed JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-            integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
         <!--Our CSS-->
         <link rel="stylesheet" href="assets/styles.css">
     </head>
 
+<<<<<<< HEAD
+    <body class="landing-page">
+
+=======
     <body>
     
     <form action="./results.html">
@@ -26,41 +27,54 @@
     </form>
      
     
+>>>>>>> 53739493324d1071110541058643dff82c5898c5
         <ul class="menu">
             <li class="menu-text">INTown</li>
         </ul>
-        <div class="grid-container grid-container-padded">
-            <div class="align-middle">
 
-                <div class="grid-x grid-padding-x align-spaced" id="landing-page">
-                    <div class="cell small-4" id="intro">
-                        <h3>About INTown<h3>
-                    </div>
-                    <div class="cell small-4" id="searchbox">
+        <div class="grid-frame">
+            <div class="grid-x grid-padding-x" id="landing-page">
+                <div class="cell small-4 align-self-middle" id="intro">
+                    <h3>About INTown<h3>
+                </div>
+                <!--Select a neighborhood search box-->
+                <div class="cell small-4 align-self-middle" id="searchbox">
+                    <form action="./results.html">
                         <label>Select a Neighborhood:
                             <select>
-                                <option value="barclay-downs">Barclay Downs</option>
-                                <option value="chantilly">Chantilly</option>
-                                <option value="cotswold">Cotswold</option>
-                                <option value="dilworth">Dilworth</option>
-                                <option value="eastover">Eastover</option>
-                                <option value="elizabeth">Elizabeth</option>
-                                <option value="greenville">Greenville</option>
-                                <option value="montford">Montford</option>
-                                <option value="north-davidson">North Davidson</option>
-                                <option value="oakhurst">Oakhurst</option>
-                                <option value="plaza-midwood">Plaza Midwood</option>
-                                <option value="south-end">South End</option>
-                                <option value="uptown">Uptown</option>
+                                <option name="barclay-downs" id="barclay-downs">Barclay Downs</option>
+                                <option name="cotswold" id="cotswold">Cotswold</option>
+                                <option name="dilworth" id="dilworth">Dilworth</option>
+                                <option name="chantilly" id="chantilly">Chantilly</option>
+                                <option name="eastover" id="eastover">Eastover</option>
+                                <option name="elizabeth" id="elizabeth">Elizabeth</option>
+                                <option name="greenville" id="greenville">Greenville</option>
+                                <option name="montford" id="montford">Montford</option>
+                                <option name="north-davidson" id="north-davidson">North Davidson</option>
+                                <option name="oakhurst" id="oakhurst">Oakhurst</option>
+                                <option name="plaza-midwood" id="plaza-midwood">Plaza Midwood</option>
+                                <option name="south-end" id="south-end">South End</option>
+                                <option name="uptown" id="uptown">Uptown</option>
                             </select>
+                            <div class="grid-x grid-padding-x">
+                                <fieldset class="large-12 cell">
+                                    <legend>Choose Search Criteria</legend>
+                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" required><label
+                                        for="outdoor-areas">Outdoor Areas</label>
+                                    <input type="radio" name="restautants" id="restaurants"><label
+                                        for="restaurants">Restaurants & Bars</label>
+                                    <input type="radio" name="popular" id="popular"><label
+                                        for="popular">Popular</label>
+                                    <input type="radio" name="events" id="events"><label
+                                        for="events">Events</label>
+                                </fieldset>
+                            </div>
                         </label>
-    
-                    </div>
+                        <button id="submit-btn" class="submit primary">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
 
-        <script src="./assets/JavaScript/script.js"></script>
+        <script src="assets/JavaScript/script.js"></script>
     </body>
-
-</html>

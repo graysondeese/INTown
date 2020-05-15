@@ -1,47 +1,50 @@
-body {
-    height: 100%;
-    background-image: url("./Pictures/charlotte-4k-nightscapes-north-carolina-usa.jpg");
-    background-color: #cccccc;
-    background-size: cover;
-    background-repeat: no-repeat;
-   }
-
-.menu {
-    background-color: black;
-    color: white
+.landing-page {
+  height: 100%;
+  background-image: url("./Pictures/charlotte-4k-nightscapes-north-carolina-usa.jpg");
+  background-color: #cccccc;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-   /* For width 400px and larger:
+.menu {
+  background-color: black;
+  color: white;
+}
+
+/* For width 400px and larger:
 @media only screen and (min-width: 400px) {
     body {
       background-image: url('img_flowers.jpg');
     }
   } */
 
-  #searchbox {
-      background-color: white;
-  }
+#searchbox {
+  background-color: white;
+}
 
-  .grid-container {
-      /* sets the height to 100% of viewport height */
-      height: 100vh;
-  }
+.grid-container {
+  /* sets the height to 100% of viewport height */
+  height: 100vh;
+}
 
+#intro {
+  color: white;
+}
 
-  #intro {
-      color: white;
-  }
+#searchbox {
+  height: 350px;
+}
 
-  #searchbox {
-      height: 350px;
-  }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+}
 
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 40%; 
-  }
+.card1 {
+  padding: 2px 16px;
+}
 
-  .card1 {
-    padding: 2px 16px;
-  }
+#map {
+  height: 400px;
+}

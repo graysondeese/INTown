@@ -1,4 +1,4 @@
-body {
+.landing-page {
     height: 100%;
     background-image: url("./Pictures/charlotte-4k-nightscapes-north-carolina-usa.jpg");
     background-color: #cccccc;
@@ -22,16 +22,15 @@ body {
       background-color: white;
   }
 
-  .grid-container {
-      /* sets the height to 100% of viewport height */
-      height: 100vh;
-  }
-
 
   #intro {
       color: white;
   }
 
   #searchbox {
-      height: 350px;
   }
+
+  /* #submit-btn {
+      background-color: blue;
+      color: white;
+  } */

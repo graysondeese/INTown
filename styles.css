@@ -1,3 +1,37 @@
 body {
-    background-color: blue;
+    height: 100%;
+    background-image: url("charlotte-4k-nightscapes-north-carolina-usa.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+    background-repeat: no-repeat;
+   }
+
+.menu {
+    background-color: black;
+    color: white
 }
+
+   /* For width 400px and larger:
+@media only screen and (min-width: 400px) {
+    body {
+      background-image: url('img_flowers.jpg');
+    }
+  } */
+
+  #searchbox {
+      background-color: white;
+  }
+
+  .grid-container {
+      /* sets the height to 100% of viewport height */
+      height: 100vh;
+  }
+
+
+  #intro {
+      color: white;
+  }
+
+  #searchbox {
+      height: 350px;
+  }

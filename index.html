@@ -14,7 +14,7 @@
         <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
             integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
         <!--Our CSS-->
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="assets/styles.css">
     </head>
 
     <body>
@@ -22,14 +22,37 @@
             <li class="menu-text">INTown</li>
         </ul>
         <div class="grid-container grid-container-padded">
-            <div class="grid-x grid-padding-x align-spaced align-middle text-center" id="landing-page">
-                <div class="cell small-4" id="intro">
-                    <h3>About INTown<h3>
+            <div class="align-middle">
+
+                <div class="grid-x grid-padding-x align-spaced" id="landing-page">
+                    <div class="cell small-4" id="intro">
+                        <h3>About INTown<h3>
                     </div>
-                <div class="cell small-4" id="searchbox">Search Here:</div>
+                    <div class="cell small-4" id="searchbox">
+                        <label>Select a Neighborhood:
+                            <select>
+                                <option value="barclay-downs">Barclay Downs</option>
+                                <option value="chantilly">Chantilly</option>
+                                <option value="cotswold">Cotswold</option>
+                                <option value="dilworth">Dilworth</option>
+                                <option value="eastover">Eastover</option>
+                                <option value="elizabeth">Elizabeth</option>
+                                <option value="greenville">Greenville</option>
+                                <option value="montford">Montford</option>
+                                <option value="north-davidson">North Davidson</option>
+                                <option value="oakhurst">Oakhurst</option>
+                                <option value="plaza-midwood">Plaza Midwood</option>
+                                <option value="south-end">South End</option>
+                                <option value="uptown">Uptown</option>
+                            </select>
+                        </label>
+    
+                    </div>
+                </div>
             </div>
         </div>
 
+        <script src="./assets/JavaScript/script.js"></script>
     </body>
 
 </html>

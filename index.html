@@ -12,7 +12,7 @@
             integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
         <!--Our CSS-->
         <link rel="stylesheet" href="assets/styles.css">
-    </head>
+       </head>
 
     <body class="landing-page">
 
@@ -27,7 +27,7 @@
                 </div>
                 <!--Select a neighborhood search box-->
                 <div class="cell small-4 align-self-middle" id="searchbox">
-                    <form action="./results.html">
+                    <form action="./results.html" class="radioForm" id="radioForm">
                         <label>Select a Neighborhood:
                             <select>
                                 <option name="barclay-downs" id="barclay-downs">Barclay Downs</option>
@@ -47,13 +47,13 @@
                             <div class="grid-x grid-padding-x">
                                 <fieldset class="large-12 cell">
                                     <legend>Choose Search Criteria</legend>
-                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" required><label
+                                    <input type="radio" name="do-stuff" id="outdoor-areas" required><label
                                         for="outdoor-areas">Outdoor Areas</label>
-                                    <input type="radio" name="restautants" id="restaurants"><label
+                                    <input type="radio" name="do-stuff" id="restaurants"><label
                                         for="restaurants">Restaurants & Bars</label>
-                                    <input type="radio" name="popular" id="popular"><label
+                                    <input type="radio" name="do-stuff" id="popular"><label
                                         for="popular">Popular</label>
-                                    <input type="radio" name="events" id="events"><label
+                                    <input type="radio" name="do-stuff" id="events"><label
                                         for="events">Events</label>
                                 </fieldset>
                             </div>

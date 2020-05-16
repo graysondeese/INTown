@@ -64,6 +64,8 @@ if (cardContainer) {
     var param = urlArray[i]
     var paramIsTrue = checkIfParamIsTrue(param);
     if(paramIsTrue){
+    }else{
+      //getElbyclassname grabs items from an array
       var cardWithClass = document.getElementsByClassName(param)
       cardWithClass[0].style.display = "none";
     }

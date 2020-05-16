@@ -38,7 +38,7 @@ function submitButton() {
 
 var submitBtn = document.getElementById("submit-btn");
 if (submitBtn) {
-  sumbitBtn.addEventListener("click", function (event) {
+  submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
     submitButton();
     

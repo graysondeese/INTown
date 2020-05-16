@@ -12,22 +12,10 @@
             integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
         <!--Our CSS-->
         <link rel="stylesheet" href="assets/styles.css">
-    </head>
+       </head>
 
-<<<<<<< HEAD
     <body class="landing-page">
 
-=======
-    <body>
-    
-    <form action="./results.html">
-      <input type="text" name="password" id="password" /><br />
-      <input type="text" name="keyword" id="keyword" />
-      <button type="submit">Search</button>
-    </form>
-     
-    
->>>>>>> 53739493324d1071110541058643dff82c5898c5
         <ul class="menu">
             <li class="menu-text">INTown</li>
         </ul>
@@ -39,7 +27,8 @@
                 </div>
                 <!--Select a neighborhood search box-->
                 <div class="cell small-4 align-self-middle" id="searchbox">
-                    <form action="./results.html">
+                    <!--took out form action="./results.html"></form> on line 31-->
+                    <form  class="search-box" id="search-box" name="search-box">
                         <label>Select a Neighborhood:
                             <select>
                                 <option name="barclay-downs" id="barclay-downs">Barclay Downs</option>
@@ -59,17 +48,18 @@
                             <div class="grid-x grid-padding-x">
                                 <fieldset class="large-12 cell">
                                     <legend>Choose Search Criteria</legend>
-                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" required><label
+                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" value= "outdoor-areas"><label
                                         for="outdoor-areas">Outdoor Areas</label>
-                                    <input type="radio" name="restautants" id="restaurants"><label
-                                        for="restaurants">Restaurants & Bars</label>
-                                    <input type="radio" name="popular" id="popular"><label
+                                    <input type="radio" name="restaurants" id="restaurants" value="restaurants"><label
+                                        for="restaurants">Restaurants & Bars</label><br><!--added page break for radios-->
+                                    <input type="radio" name="popular" id="popular" value="popluar"><label
                                         for="popular">Popular</label>
-                                    <input type="radio" name="events" id="events"><label
+                                    <input type="radio" name="events" id="events" value="events"><label
                                         for="events">Events</label>
                                 </fieldset>
                             </div>
                         </label>
+                        <!--created an onclick to collect values of radio buttons-->
                         <button id="submit-btn" class="submit primary">Search</button>
                     </form>
                 </div>

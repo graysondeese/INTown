@@ -27,7 +27,7 @@
                 </div>
                 <!--Select a neighborhood search box-->
                 <div class="cell small-4 align-self-middle" id="searchbox">
-                    <form action="./results.html" class="radioForm" id="radioForm">
+                    <form action="./results.html" class="search-box" id="search-box" name="search-box">
                         <label>Select a Neighborhood:
                             <select>
                                 <option name="barclay-downs" id="barclay-downs">Barclay Downs</option>
@@ -47,18 +47,19 @@
                             <div class="grid-x grid-padding-x">
                                 <fieldset class="large-12 cell">
                                     <legend>Choose Search Criteria</legend>
-                                    <input type="radio" name="do-stuff" id="outdoor-areas" required><label
+                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" value= "outdoor-areas" required><label
                                         for="outdoor-areas">Outdoor Areas</label>
-                                    <input type="radio" name="do-stuff" id="restaurants"><label
+                                    <input type="radio" name="restaurants" id="restaurants" value="restaurants"><label
                                         for="restaurants">Restaurants & Bars</label>
-                                    <input type="radio" name="do-stuff" id="popular"><label
+                                    <input type="radio" name="popular" id="popular" value="popluar"><label
                                         for="popular">Popular</label>
-                                    <input type="radio" name="do-stuff" id="events"><label
+                                    <input type="radio" name="events" id="events" value="events"><label
                                         for="events">Events</label>
                                 </fieldset>
                             </div>
                         </label>
-                        <button id="submit-btn" class="submit primary">Search</button>
+                        <!--created an onclick to collect values of radio buttons-->
+                        <button onclick="submitButton()" id="submit-btn" class="submit primary">Search</button>
                     </form>
                 </div>
             </div>

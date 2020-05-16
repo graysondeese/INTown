@@ -1,5 +1,5 @@
 // ------------------ Page 1 ---------------------------
-
+//stuff Jeff gave us
       /* var queryString = window.location.search;
       var urlParams = new URLSearchParams(queryString);
       var keyword = urlParams.get("keyword");
@@ -8,58 +8,29 @@
       } */
       
 //=============Radio button variables========================
-var outdoorRadio = document.querySelector("#outdoor-areas");
-var restaurantsRadio = document.querySelector("#restaurants");
-var popularRadio = document.querySelector("#popular");
-var eventsRadio = document.querySelector("#events");
 
 
-/* outdoorRadio.addEventListener("click", function(event) {
-  console.log("outdoor clicked")
-})
-restaurantsRadio.addEventListener("click", function (event){
-  console.log("rest clicked")
-})
-popularRadio.addEventListener("click", function(event){
-  console.log("popular clicked")
-})
+var sumbitBtn = document.getElementById("submit-btn");
 
-eventsRadio.addEventListener("click", function(event){
- console.log("events clicked");
-}) */
+function submitButton (){
+  var outdoorRadio = document.querySelector("#outdoor-areas");
+  var restaurantsRadio = document.querySelector("#restaurants");
+  var popularRadio = document.querySelector("#popular");
+  var eventsRadio = document.querySelector("#events");
 
-
-function getRadioVal(form, name)   {
-  var radioVal;
-  //get list of radio buttons with specified name
-  var radios = form.elements[name];
-  //loop through list of radio buttons
-  for (var i = 0, len=radios.length; i < len; i++);
-  //are there any radios checked?
-    if(radios[i].checked){ 
-  //if yes, hold value in radioVal variable
-    radioVal = radios[i].value; 
-  //and break out of loop
-    break;
+  if(outdoorRadio.checked == true || restaurantsRadio.checked == true || popularRadio.checked == true || eventsRadio.checked == true){
+    alert("options are selected")
+    loadResultsPage ();
+  }else{
+    alert("Please choose a Search Criteria.")
   }
-  //return value of checked radio or undefined if none checked
-  return radioVal;
+  
 }
 
-//getting value of selected radio button in radioForm 
-var radioVal = getRadioVal(document.getElementById("radioForm"), "do-stuff");
-alert (radioVal);
+function loadResultsPage(){
 
-//refering to radioform to which onsubmit is attatched
-document.getElementById("radioForm").onsubmit = function () {
-  //do-stuff is the name of the radio button group
-  var radioVal = getRadioVal(this, "do-stuff");
 
-  alert(radioVal)
 }
-
-
-
 
 
 
@@ -76,3 +47,5 @@ function initMap() {
     zoom: 8,
   });
 }
+
+

@@ -1,0 +1,122 @@
+/* styles body */
+.landing-page {
+  width: 100%;
+  height: 100%;
+  /* overflow must be added in combination with .grid-frame to add padding&margin */
+  overflow: hidden;
+  background-image: url("../Images/charlotte-4k-nightscapes-north-carolina-usa.jpg");
+  background-color: #cccccc;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+/* styles the header text */
+#intown {
+  font-family: 'Neucha', cursive;
+  margin-bottom: 0;
+}
+
+/* styles header */
+#header {
+  text-align: center;
+  color: white;
+  background-color: black;
+  padding: 5px;
+}
+
+/* styles containers holding body content */
+.container {
+  height: 100%;
+}
+
+/* styles description text in left cell */
+#tagline {
+  color: white;
+  width: 75%;
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+/* styles Search div in right cell */
+#searchbox {
+  background-color: white;
+  /* border: 1px solid black; */
+  padding: 25px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* styles "Start Exploring" text */
+#start-exploring {
+  font-family: 'Neucha', cursive;
+  margin-bottom: 10px;
+}
+
+/* styles "Select a Neighborhood:" text */
+label {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* styles neighborhood select menu */
+select {
+  width: auto;
+}
+
+/* styles search button */
+#searchBtn {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  color: white;
+  background-color: gray;
+  border: 1px solid grey;
+} #searchBtn:hover {
+  color: black;
+  background-color: white;
+}
+
+/**************** results.html styling *******************/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card1 {
+  padding: 2px 16px;
+}
+
+#map {
+  height: 500px;
+}
+.cardContainer {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+}
+
+.card1,
+.card2,
+.card3,
+.card4 {
+  padding: 2px 16px;
+  width: 25%;
+  border-style: solid;
+  border-color: black;
+}
+.cardHeader {
+  border-style: solid;
+  border-color: black;
+  text-align: center;
+  margin-bottom: 5%;
+  margin-top: 3%;
+}

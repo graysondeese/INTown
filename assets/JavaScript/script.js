@@ -1,4 +1,3 @@
-var neighborhoodCoords;
 //passes selected neighborhood to results.html
 function passValue() {
   var selectNeighborhood = document.getElementById("neighborhoods").value;
@@ -49,17 +48,6 @@ if (submitBtn) {
   });
 }
 
-//function for map
-var map;
-function initMap() {
-  //new map
-  map = new google.maps.Map(document.getElementById("map"), {
-    //map options
-    center: { lat: 35.223, lng: -80 },
-    zoom: 12,
-  });
-}
-
 //selects card container on results page and determines which radio button was selected and should be displayed.
 var cardContainer = document.getElementById("card-container");
 if (cardContainer) {
@@ -77,28 +65,47 @@ if (cardContainer) {
   }
 }
 
-// function to get selected neighborhood coordinates
-function getCoordinates() {
-  // assigns the selected neighborhood to a variable
-  var userNeighborhood = localStorage.getItem("neighborhood");
-  console.log(userNeighborhood);
-
-  // api URL
-  var queryURL =
-    "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" +
-    userNeighborhood +
-    "&inputtype=textquery&fields=geometry&key=AIzaSyDqbk395bdiYQHD1PnoJDsWlcGBqUHw-1o";
-
-  // call API
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-    // console log response and save the coordinates to a variable
-  }).then(function (response) {
-    // console.log(response); <-- checking response
-    neighborhoodCoords = response.candidates[0].geometry.location;
-    // console.log(neighborhoodCoords);<-- testing for coords
+// to hold the map
+var map;
+//function for map
+function initMap() {
+  //new map
+  map = new google.maps.Map(document.getElementById("map"), {
+    //map options
+    center: { lat: 35.2271, lng: -80.8431 },
+    zoom: 12,
   });
-}
 
-getCoordinates();
+  // Object for neighborhoods
+  var neighborhoods = [
+    {
+      title: "Barclay Downs",
+      coords: { lat: 35.1627, lng: -80.8541 },
+    },
+  ];
+
+  // Get selected neighborhoods from storage
+  var neighborhood = localStorage.getItem("neighborhood");
+  console.log(neighborhood);
+  var neighborhoodCoords;
+
+  // Iterate through the object
+  for (var i = 0; i < neighborhoods.length; i++) {
+    // If an objects title is equal to selected title
+    if (neighborhood === neighborhoods[i].title) {
+      // Assign the coordinates to a variable
+      neighborhoodCoords = neighborhoods[i].coords;
+      console.log(neighborhoodCoords);
+    }
+  }
+
+  panToNeighborhood(neighborhoodCoords);
+
+  function panToNeighborhood() {
+    var marker = new google.maps.Marker({
+      position: neighborhoodCoords,
+      map: map,
+      animation: google.maps.Animation.DROP,
+    });
+  }
+}

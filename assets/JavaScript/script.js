@@ -1,3 +1,71 @@
+// Object for neighborhoods
+var neighborhoods = [
+  {
+    title: "Barclay Downs",
+    coords: { lat: 35.1627482, lng: -80.8541635 },
+  },
+  {
+    title: "Uptown",
+    coords: { lat: 35.2058895, lng: -80.8602408 },
+  },
+  {
+    title: "South End",
+    coords: { lat: 35.2125569, lng: -80.867532 },
+  },
+  {
+    title: "North Davidson",
+    coords: { lat: 35.2482123, lng: -80.8106876 },
+  },
+  {
+    title: "Plaza Midwood",
+    coords: { lat: 35.2261962, lng: -80.8123889 },
+  },
+  {
+    title: "Dilworth",
+    coords: { lat: 35.2058895, lng: -80.8602408 },
+  },
+  {
+    title: "Cotswold",
+    coords: { lat: 35.1827687, lng: -80.8039828 },
+  },
+  {
+    title: "Oakhurst",
+    coords: { lat: 35.1923152, lng: -80.7866842 },
+  },
+  {
+    title: "Myers Park",
+    coords: { lat: 35.182864, lng: -80.8449514 },
+  },
+  {
+    title: "Montford",
+    coords: { lat: 35.1684221, lng: -80.8581215 },
+  },
+  {
+    title: "Eastover",
+    coords: { lat: 35.1936622, lng: -80.8283562 },
+  },
+  {
+    title: "Elizabeth",
+    coords: { lat: 35.2121982, lng: -80.8299537 },
+  },
+  {
+    title: "Chantilly",
+    coords: { lat: 35.2115244, lng: -80.8170717 },
+  },
+  {
+    title: "First Ward",
+    coords: { lat: 35.2260366, lng: -80.8444644 },
+  },
+  {
+    title: "Fourth Ward",
+    coords: { lat: 35.2346569, lng: -80.8539655 },
+  },
+  {
+    title: "Greenville",
+    coords: { lat: 35.2428535, lng: -80.8522108 },
+  },
+];
+
 //passes selected neighborhood to results.html
 function passValue() {
   var selectNeighborhood = document.getElementById("neighborhoods").value;
@@ -75,15 +143,6 @@ function initMap() {
     center: { lat: 35.2271, lng: -80.8431 },
     zoom: 12,
   });
-
-  // Object for neighborhoods
-  var neighborhoods = [
-    {
-      title: "Barclay Downs",
-      coords: { lat: 35.1627, lng: -80.8541 },
-    },
-  ];
-
   // Get selected neighborhoods from storage
   var neighborhood = localStorage.getItem("neighborhood");
   console.log(neighborhood);
@@ -91,7 +150,7 @@ function initMap() {
 
   // Iterate through the object
   for (var i = 0; i < neighborhoods.length; i++) {
-    // If an objects title is equal to selected title
+    // If an objects title is equal to selected neighborhood
     if (neighborhood === neighborhoods[i].title) {
       // Assign the coordinates to a variable
       neighborhoodCoords = neighborhoods[i].coords;
@@ -99,13 +158,16 @@ function initMap() {
     }
   }
 
-  panToNeighborhood(neighborhoodCoords);
+  neighborhoodMarker(neighborhoodCoords);
 
-  function panToNeighborhood() {
+  function neighborhoodMarker() {
     var marker = new google.maps.Marker({
       position: neighborhoodCoords,
       map: map,
       animation: google.maps.Animation.DROP,
     });
+
+    map.panTo(neighborhoodCoords);
+    map.setZoom(15);
   }
 }

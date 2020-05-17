@@ -12,7 +12,7 @@
             integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
         <!--Our CSS-->
         <link rel="stylesheet" href="assets/styles.css">
-    </head>
+       </head>
 
     <body class="landing-page">
 
@@ -27,33 +27,33 @@
                 </div>
                 <!--Select a neighborhood search box-->
                 <div class="cell small-4 align-self-middle" id="searchbox">
-                    <form action="assets/results.html">
+                    <form  class="search-box" id="search-box" name="search-box" action="assets/results.html">
                         <label>Select a Neighborhood:
                             <select id="neighborhoods">
-                                <option name="barclay-downs" value="barclay-downs">Barclay Downs</option>
-                                <option name="cotswold" value="cotswold">Cotswold</option>
-                                <option name="dilworth" value="dilworth">Dilworth</option>
-                                <option name="chantilly" value="chantilly">Chantilly</option>
-                                <option name="eastover" value="eastover">Eastover</option>
-                                <option name="elizabeth" value="elizabeth">Elizabeth</option>
-                                <option name="greenville" value="greenville">Greenville</option>
-                                <option name="montford" value="montford">Montford</option>
-                                <option name="north-davidson" value="north-davidson">North Davidson</option>
-                                <option name="oakhurst" value="oakhurst">Oakhurst</option>
-                                <option name="plaza-midwood" value="plaza-midwood">Plaza Midwood</option>
-                                <option name="south-end" value="south-end">South End</option>
-                                <option name="uptown" value="uptown">Uptown</option>
+                                <option name="barclay-downs" value="Barclay Downs">Barclay Downs</option>
+                                <option name="cotswold" value="Cotswold">Cotswold</option>
+                                <option name="dilworth" value="Dilworth">Dilworth</option>
+                                <option name="chantilly" value="Chantilly">Chantilly</option>
+                                <option name="eastover" value="Eastover">Eastover</option>
+                                <option name="elizabeth" value="Elizabeth">Elizabeth</option>
+                                <option name="greenville" value="Greenville">Greenville</option>
+                                <option name="montford" value="Montford">Montford</option>
+                                <option name="north-davidson" value="North Davidson">North Davidson</option>
+                                <option name="oakhurst" value="Oakhurst">Oakhurst</option>
+                                <option name="plaza-midwood" value="Plaza Midwood">Plaza Midwood</option>
+                                <option name="south-end" value="South End">South End</option>
+                                <option name="uptown" value="Uptown">Uptown</option>
                             </select>
                             <div class="grid-x grid-padding-x">
                                 <fieldset class="large-12 cell">
                                     <legend>Choose Search Criteria</legend>
-                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" required><label
+                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" value= "outdoor-areas"><label
                                         for="outdoor-areas">Outdoor Areas</label>
-                                    <input type="radio" name="restautants" id="restaurants"><label
-                                        for="restaurants">Restaurants & Bars</label>
-                                    <input type="radio" name="popular" id="popular"><label
+                                    <input type="radio" name="restaurants" id="restaurants" value="restaurants"><label
+                                        for="restaurants">Restaurants & Bars</label><br><!--added page break for radios-->
+                                    <input type="radio" name="popular" id="popular" value="popluar"><label
                                         for="popular">Popular</label>
-                                    <input type="radio" name="events" id="events"><label
+                                    <input type="radio" name="events" id="events" value="events"><label
                                         for="events">Events</label>
                                 </fieldset>
                             </div>

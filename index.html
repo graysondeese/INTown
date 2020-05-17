@@ -14,20 +14,8 @@
         <link rel="stylesheet" href="assets/styles.css">
     </head>
 
-<<<<<<< HEAD
     <body class="landing-page">
 
-=======
-    <body>
-    
-    <form action="./results.html">
-      <input type="text" name="password" id="password" /><br />
-      <input type="text" name="keyword" id="keyword" />
-      <button type="submit">Search</button>
-    </form>
-     
-    
->>>>>>> 53739493324d1071110541058643dff82c5898c5
         <ul class="menu">
             <li class="menu-text">INTown</li>
         </ul>
@@ -39,22 +27,22 @@
                 </div>
                 <!--Select a neighborhood search box-->
                 <div class="cell small-4 align-self-middle" id="searchbox">
-                    <form action="./results.html">
+                    <form action="assets/results.html">
                         <label>Select a Neighborhood:
-                            <select>
-                                <option name="barclay-downs" id="barclay-downs">Barclay Downs</option>
-                                <option name="cotswold" id="cotswold">Cotswold</option>
-                                <option name="dilworth" id="dilworth">Dilworth</option>
-                                <option name="chantilly" id="chantilly">Chantilly</option>
-                                <option name="eastover" id="eastover">Eastover</option>
-                                <option name="elizabeth" id="elizabeth">Elizabeth</option>
-                                <option name="greenville" id="greenville">Greenville</option>
-                                <option name="montford" id="montford">Montford</option>
-                                <option name="north-davidson" id="north-davidson">North Davidson</option>
-                                <option name="oakhurst" id="oakhurst">Oakhurst</option>
-                                <option name="plaza-midwood" id="plaza-midwood">Plaza Midwood</option>
-                                <option name="south-end" id="south-end">South End</option>
-                                <option name="uptown" id="uptown">Uptown</option>
+                            <select id="neighborhoods">
+                                <option name="barclay-downs" value="barclay-downs">Barclay Downs</option>
+                                <option name="cotswold" value="cotswold">Cotswold</option>
+                                <option name="dilworth" value="dilworth">Dilworth</option>
+                                <option name="chantilly" value="chantilly">Chantilly</option>
+                                <option name="eastover" value="eastover">Eastover</option>
+                                <option name="elizabeth" value="elizabeth">Elizabeth</option>
+                                <option name="greenville" value="greenville">Greenville</option>
+                                <option name="montford" value="montford">Montford</option>
+                                <option name="north-davidson" value="north-davidson">North Davidson</option>
+                                <option name="oakhurst" value="oakhurst">Oakhurst</option>
+                                <option name="plaza-midwood" value="plaza-midwood">Plaza Midwood</option>
+                                <option name="south-end" value="south-end">South End</option>
+                                <option name="uptown" value="uptown">Uptown</option>
                             </select>
                             <div class="grid-x grid-padding-x">
                                 <fieldset class="large-12 cell">
@@ -70,11 +58,10 @@
                                 </fieldset>
                             </div>
                         </label>
-                        <button id="submit-btn" class="submit primary">Search</button>
+                        <button id="submit-btn" class="submit primary" onclick="passValue()">Search</button>
                     </form>
                 </div>
             </div>
         </div>
-
         <script src="assets/JavaScript/script.js"></script>
     </body>

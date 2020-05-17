@@ -1,30 +1,15 @@
-console.log("link");
-var queryString = window.location.search;
-var urlParams = new URLSearchParams(queryString);
-var keyword = urlParams.get("keyword");
-console.log(keyword);
-// ------------------ Page 1 ---------------------------
+//get user neighborhood
+function passValue() {
+  var selectNeighborhood = document.getElementById("neighborhoods").value;
+  localStorage.setItem("neighborhood", selectNeighborhood);
+  return true;
+}
 
-      var queryString = window.location.search;
-      var urlParams = new URLSearchParams(queryString);
-      var keyword = urlParams.get("keyword");
-      console.log(keyword);
+// assigns the selected neighborhood to a variable
+var userNeighborhood = localStorage.getItem("neighborhood");
+console.log(userNeighborhood);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // ------------------- Page 2 ------------------------------
+//function for map
 var map;
 function initMap() {
   //new map

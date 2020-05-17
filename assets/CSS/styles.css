@@ -2,14 +2,14 @@
 .landing-page {
   height: 100vh;
   /* overflow must be added in combination with .grid-frame to add padding&margin */
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: 'Didact Gothic', sans-serif;
   background-image: url("../Images/charlotte-4k-nightscapes-north-carolina-usa.jpg");
   background-position: left;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: navy;
+  background-color: black;
 }
 
 /* styles header */
@@ -34,7 +34,7 @@ header {
 /* styles description text in left cell */
 #tagline {
   color: white;
-  width: 75%;
+  width: 60%;
   margin: 0 auto;
   padding: 15px;
   font-size: 2rem;

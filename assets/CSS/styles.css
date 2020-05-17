@@ -1,28 +1,29 @@
 /* styles body */
 .landing-page {
-  width: 100%;
-  height: 100%;
+  height: 100vh;
   /* overflow must be added in combination with .grid-frame to add padding&margin */
   overflow: hidden;
-  background-image: url("../Images/charlotte-4k-nightscapes-north-carolina-usa.jpg");
-  background-color: #cccccc;
-  background-size: cover;
-  background-repeat: no-repeat;
   font-family: 'Didact Gothic', sans-serif;
+  background-image: url("../Images/charlotte-4k-nightscapes-north-carolina-usa.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: navy;
+}
+
+/* styles header */
+header {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px;
 }
 
 /* styles the header text */
 #intown {
   font-family: 'Neucha', cursive;
   margin-bottom: 0;
-}
-
-/* styles header */
-#header {
-  text-align: center;
   color: white;
-  background-color: black;
-  padding: 5px;
 }
 
 /* styles containers holding body content */

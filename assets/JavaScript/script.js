@@ -180,11 +180,11 @@ $.ajax({
 }).then(function(response) {
   console.log(response);
 
-var eventsCard = $(".card-section");
-var itemOne = $(".itemOne").text(response._embedded.events[0]);
-var itemTwo = $(".itemTwo").text(response._embedded.events[1]);
-var itemThree = $(".itemThree").text(response._embedded.events[2]);
-var itemFour = $(".itemFour").text(response._embedded.events[3]);
+var eventsCard = $("#card-section-one");
+var itemOne = $("#event-item-one").text(response._embedded.events[0]);
+var itemTwo = $("#event-item-two").text(response._embedded.events[1]);
+var itemThree = $("#event-item-three").text(response._embedded.events[2]);
+var itemFour = $("#event-item-four").text(response._embedded.events[3]);
 
 //eventsCard.text(JSON.stringify(itemOne, itemTwo, itemThree, itemFour));
 

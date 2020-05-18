@@ -145,7 +145,6 @@ function initMap() {
   var neighborhood = localStorage.getItem("neighborhood");
   console.log(neighborhood);
   var neighborhoodCoords;
-
   // Iterate through the object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -169,5 +168,31 @@ function initMap() {
     // zoom and pan to marker
     map.panTo(neighborhoodCoords);
     map.setZoom(15);
+    getPlaces()
   }
 }
+
+// get data from API
+function getPlaces() {
+  // get neighborhood from local storage
+  var neighborhood = localStorage.getItem("neighborhood")
+  console.log(neighborhood)
+  // iterate through object
+  for (var i = 0; i < neighborhoods.length; i++) {
+    // If an objects title is equal to selected neighborhood
+    if (neighborhood === neighborhoods[i].title) {
+      // Assign the coordinates to a variable
+      neighborhoodCoords = JSON.stringify(neighborhoods[i].coords);
+      console.log(neighborhoodCoords);
+    }
+  }
+
+  // ajax call for places api
+  $.ajax({
+    url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.2419,-80.8422&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDqbk395bdiYQHD1PnoJDsWlcGBqUHw-1o",
+    method: "GET"
+  }).then(function(response){
+    console.log(response)
+  })
+}
+

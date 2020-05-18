@@ -257,6 +257,7 @@ function getPlaces() {
     method: "GET"
   }).then(function(response){
     console.log(response)
+    
   })
 }
 

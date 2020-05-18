@@ -93,6 +93,7 @@ function submitButton() {
 
   for (i = 0; i < urlArray.length; i++) {
     var checkBox = document.querySelector("#" + urlArray[i]);
+    console.log(checkBox)
     if (checkBox.checked == true) {
       //adding string that got the id
       urlParams += urlArray[i] + "=true&";
@@ -109,6 +110,7 @@ if (submitBtn) {
   submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
     submitButton();
+    passValue()
   });
 }
 

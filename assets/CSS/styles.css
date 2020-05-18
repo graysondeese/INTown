@@ -129,7 +129,7 @@ select {
 
 .card-divider {
   text-align: center;
-  background-color: black;
+  background-color: grey;
   color: white;
   border-radius: 10px;
   margin-top: 5px;

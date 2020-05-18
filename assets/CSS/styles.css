@@ -3,7 +3,7 @@
   height: 100vh;
   /* overflow must be added in combination with .grid-frame to add padding&margin */
   /* overflow: hidden; */
-  font-family: 'Didact Gothic', sans-serif;
+  font-family: "Didact Gothic", sans-serif;
   background-image: url("../Images/charlotte-4k-nightscapes-north-carolina-usa.jpg");
   background-position: left;
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@ header {
 
 /* styles the header text */
 #intown {
-  font-family: 'Neucha', cursive;
+  font-family: "Neucha", cursive;
   margin-bottom: 0;
   color: white;
 }
@@ -52,7 +52,7 @@ header {
 
 /* styles "Start Exploring" text */
 #start-exploring {
-  font-family: 'Neucha', cursive;
+  font-family: "Neucha", cursive;
   margin-bottom: 10px;
 }
 
@@ -75,7 +75,8 @@ select {
   color: white;
   background-color: gray;
   border: 1px solid grey;
-} #searchBtn:hover {
+}
+#searchBtn:hover {
   color: black;
   background-color: white;
 }

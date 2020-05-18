@@ -26,6 +26,13 @@ header {
   color: white;
 }
 
+a {
+  font-family: "Neucha", cursive;
+  color: white;
+} a:hover {
+  color: white;
+}
+
 /* styles containers holding body content */
 .container {
   height: 100%;
@@ -73,7 +80,7 @@ select {
   margin-top: 5px;
   color: white;
   background-color: gray;
-  border: 1px solid grey;
+  border: 1px solid gray;
 }
 #submit-btn:hover {
   color: black;
@@ -129,10 +136,11 @@ select {
 
 .card-divider {
   text-align: center;
-  background-color: grey;
+  background-color: gray;
   color: white;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   margin-top: 5px;
+  padding: .75rem;
 }
 /* setting media query rules for the cards on phones */
 @media screen and (max-width: 700px) {

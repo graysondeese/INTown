@@ -84,11 +84,6 @@ function checkIfParamIsTrue(word) {
 //=============Submit button========================
 
 function submitButton() {
-  /* var outdoorRadio = document.querySelector("#outdoor-areas");
-  var restaurantsRadio = document.querySelector("#restaurants");
-  var popularRadio = document.querySelector("#popular");
-  var eventsRadio = document.querySelector("#events"); */
-
   var urlParams = "?";
 
   for (i = 0; i < urlArray.length; i++) {
@@ -100,7 +95,7 @@ function submitButton() {
     }
   }
   console.log(urlParams);
-  //combining route of file with params
+  //combining route of file with params--building URL 
   window.location = "./assets/results.html" + urlParams;
   console.log(location.href);
 }
@@ -117,6 +112,7 @@ if (submitBtn) {
 //selects card container on results page and determines which radio button was selected and should be displayed.
 var cardContainer = document.getElementById("card-container");
 if (cardContainer) {
+  //loops through url array
   for (i = 0; i < urlArray.length; i++) {
     var param = urlArray[i];
     var paramIsTrue = checkIfParamIsTrue(param);
@@ -124,13 +120,14 @@ if (cardContainer) {
     } else {
       //getElbyclassname grabs items from an array
       var cardWithClass = document.getElementsByClassName(param);
+      //displays whichever options were selected
       cardWithClass[0].style.display = "none";
     }
 
     console.log(param, paramIsTrue);
   }
 }
-
+//================Map=====================
 // to hold the map
 var map;
 //function for map
@@ -140,6 +137,7 @@ function initMap() {
     //map options
     center: { lat: 35.2271, lng: -80.8431 },
     zoom: 12,
+    disableDefaultUI: true,
   });
   // Get selected neighborhoods from storage
   var neighborhood = localStorage.getItem("neighborhood");
@@ -172,76 +170,13 @@ function initMap() {
   }
 }
 
-// get data from API
+// Get data from API
 function getPlaces() {
-  // get neighborhood from local storage
+  // Get neighborhood from local storage
   var neighborhood = localStorage.getItem("neighborhood")
   console.log(neighborhood)
-  // Object for neighborhoods
-  var neighborhoods = [
-    {
-      title: "Barclay Downs",
-      coords: "35.161352,-80.838031",
-    },
-    {
-      title: "South End",
-      coords: "35.2125569,-80.8588",
-    },
-    {
-      title: "North Davidson",
-      coords: "35.2482123,80.8018",
-    },
-    {
-      title: "Plaza Midwood",
-      coords: "35.2239,80.8018",
-    },
-    {
-      title: "Dilworth",
-      coords: "35.2058895,-80.8516",
-    },
-    {
-      title: "Cotswold",
-      coords: "35.1849,-80.7907",
-    },
-    {
-      title: "Oakhurst",
-      coords: "35.1914,80.7771",
-    },
-    {
-      title: "Myers Park",
-      coords: "35.1797,80.8262",
-    },
-    {
-      title: "Montford",
-      coords: "35.1744,-80.8502",
-    },
-    {
-      title: "Eastover",
-      coords: "35.1924,-80.8184",
-    },
-    {
-      title: "Elizabeth",
-      coords: "35.2142,-80.8184",
-    },
-    {
-      title: "Chantilly",
-      coords: "35.2115244,-80.8087",
-    },
-    {
-      title: "First Ward",
-      coords: "35.2264,-80.835",
-    },
-    {
-      title: "Fourth Ward",
-      coords: "35.231,-80.8419",
-    },
-    {
-      title: "Greenville",
-      coords: "35.2419,-80.8422",
-    },
-  ];
   
-  // iterate through object
+  // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
     if (neighborhood === neighborhoods[i].title) {
@@ -251,13 +186,44 @@ function getPlaces() {
     }
   }
 
-  // ajax call for places api
-  $.ajax({
-    url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + neighborhoodCoords + "&radius=2000&type=restaurant&keyword=cruise&key=AIzaSyDqbk395bdiYQHD1PnoJDsWlcGBqUHw-1o",
-    method: "GET"
-  }).then(function(response){
-    console.log(response)
-    
-  })
+  // Get places service
+  var service = new google.maps.places.PlacesService(map)
+  // Query for nearby places
+  var request = {
+    location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
+    radius: "2000",
+    type: ["restaurant", "bar"],
+  }
+  console.log("anything")
+  service.nearbySearch(request, handleResults)
 }
 
+function handleResults(results, status) {
+  if(status == google.maps.places.PlacesServiceStatus.OK) {
+    for(var i=0; i < results.length; i++) {
+      console.log(results[i])
+    }
+  }
+}
+
+
+//==========Events/Ticketmaster API===============
+var ticketMasterKey = "inHlvBLTGUTbsQyVFJkNPakSwfAWIMCa";
+var ticketMasterURL = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketMasterKey;
+
+
+$.ajax({
+  url: ticketMasterURL,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+
+var eventsCard = $("#card-section-one");
+var itemOne = $("#event-item-one").text(response._embedded.events[0]);
+var itemTwo = $("#event-item-two").text(response._embedded.events[1]);
+var itemThree = $("#event-item-three").text(response._embedded.events[2]);
+var itemFour = $("#event-item-four").text(response._embedded.events[3]);
+
+//eventsCard.text(JSON.stringify(itemOne, itemTwo, itemThree, itemFour));
+
+});

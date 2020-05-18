@@ -177,19 +177,83 @@ function getPlaces() {
   // get neighborhood from local storage
   var neighborhood = localStorage.getItem("neighborhood")
   console.log(neighborhood)
+  // Object for neighborhoods
+  var neighborhoods = [
+    {
+      title: "Barclay Downs",
+      coords: "35.161352,-80.838031",
+    },
+    {
+      title: "South End",
+      coords: "35.2125569,-80.8588",
+    },
+    {
+      title: "North Davidson",
+      coords: "35.2482123,80.8018",
+    },
+    {
+      title: "Plaza Midwood",
+      coords: "35.2239,80.8018",
+    },
+    {
+      title: "Dilworth",
+      coords: "35.2058895,-80.8516",
+    },
+    {
+      title: "Cotswold",
+      coords: "35.1849,-80.7907",
+    },
+    {
+      title: "Oakhurst",
+      coords: "35.1914,80.7771",
+    },
+    {
+      title: "Myers Park",
+      coords: "35.1797,80.8262",
+    },
+    {
+      title: "Montford",
+      coords: "35.1744,-80.8502",
+    },
+    {
+      title: "Eastover",
+      coords: "35.1924,-80.8184",
+    },
+    {
+      title: "Elizabeth",
+      coords: "35.2142,-80.8184",
+    },
+    {
+      title: "Chantilly",
+      coords: "35.2115244,-80.8087",
+    },
+    {
+      title: "First Ward",
+      coords: "35.2264,-80.835",
+    },
+    {
+      title: "Fourth Ward",
+      coords: "35.231,-80.8419",
+    },
+    {
+      title: "Greenville",
+      coords: "35.2419,-80.8422",
+    },
+  ];
+  
   // iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
     if (neighborhood === neighborhoods[i].title) {
       // Assign the coordinates to a variable
-      neighborhoodCoords = JSON.stringify(neighborhoods[i].coords);
+      var neighborhoodCoords = neighborhoods[i].coords;
       console.log(neighborhoodCoords);
     }
   }
 
   // ajax call for places api
   $.ajax({
-    url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.2419,-80.8422&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDqbk395bdiYQHD1PnoJDsWlcGBqUHw-1o",
+    url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + neighborhoodCoords + "&radius=2000&type=restaurant&keyword=cruise&key=AIzaSyDqbk395bdiYQHD1PnoJDsWlcGBqUHw-1o",
     method: "GET"
   }).then(function(response){
     console.log(response)

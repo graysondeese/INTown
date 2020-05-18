@@ -100,7 +100,7 @@ select {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 40%;
+  /* width: 40%; */
 }
 
 .card1 {
@@ -117,11 +117,11 @@ select {
   background-color: white;
   display: flex;
   flex-direction: row;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   height: 45%;
   color: black;
-  background-color: black;
+  /* background-color: black; */
 }
 
 .card1,
@@ -129,7 +129,7 @@ select {
 .card3,
 .card4 {
   padding: 2px 16px;
-  width: 25%;
+  width: 100%;
   border-style: solid;
   border-color: black;
 }
@@ -142,6 +142,10 @@ select {
   margin-top: 5px;
   padding: .75rem;
 }
+
+.card-heading {
+  font-family: "Neucha", cursive;
+}
 /* setting media query rules for the cards on phones */
 @media screen and (max-width: 700px) {
 .cardContainer
@@ -151,7 +155,7 @@ select {
   display: flex; 
 }
 .card {
-  width: 100%;
+  /* width: 100%; */
   display: inline;
 }
 .card-divider {

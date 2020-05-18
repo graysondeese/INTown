@@ -84,11 +84,6 @@ function checkIfParamIsTrue(word) {
 //=============Submit button========================
 
 function submitButton() {
-  /* var outdoorRadio = document.querySelector("#outdoor-areas");
-  var restaurantsRadio = document.querySelector("#restaurants");
-  var popularRadio = document.querySelector("#popular");
-  var eventsRadio = document.querySelector("#events"); */
-
   var urlParams = "?";
 
   for (i = 0; i < urlArray.length; i++) {
@@ -100,7 +95,7 @@ function submitButton() {
     }
   }
   console.log(urlParams);
-  //combining route of file with params
+  //combining route of file with params--building URL 
   window.location = "./assets/results.html" + urlParams;
   console.log(location.href);
 }
@@ -117,6 +112,7 @@ if (submitBtn) {
 //selects card container on results page and determines which radio button was selected and should be displayed.
 var cardContainer = document.getElementById("card-container");
 if (cardContainer) {
+  //loops through url array
   for (i = 0; i < urlArray.length; i++) {
     var param = urlArray[i];
     var paramIsTrue = checkIfParamIsTrue(param);
@@ -124,13 +120,14 @@ if (cardContainer) {
     } else {
       //getElbyclassname grabs items from an array
       var cardWithClass = document.getElementsByClassName(param);
+      //displays whichever options were selected
       cardWithClass[0].style.display = "none";
     }
 
     console.log(param, paramIsTrue);
   }
 }
-
+//================Map=====================
 // to hold the map
 var map;
 //function for map
@@ -171,3 +168,24 @@ function initMap() {
     map.setZoom(15);
   }
 }
+
+//==========Events/Ticketmaster API===============
+var ticketMasterKey = "inHlvBLTGUTbsQyVFJkNPakSwfAWIMCa";
+var ticketMasterURL = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketMasterKey;
+
+
+$.ajax({
+  url: ticketMasterURL,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+
+var eventsCard = $(".card-section");
+var itemOne = $(".itemOne").text(response._embedded.events[0]);
+var itemTwo = $(".itemTwo").text(response._embedded.events[1]);
+var itemThree = $(".itemThree").text(response._embedded.events[2]);
+var itemFour = $(".itemFour").text(response._embedded.events[3]);
+
+//eventsCard.text(JSON.stringify(itemOne, itemTwo, itemThree, itemFour));
+
+});

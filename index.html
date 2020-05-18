@@ -1,76 +1,127 @@
 <!DOCTYPE html>
 <!--no-js prevents flash of unstyled content for a number of foundation components-->
 <html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INTown</title>
+    <!-- Foundation CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+      integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
+      crossorigin="anonymous"
+    />
+    <!--Our CSS-->
+    <link rel="stylesheet" href="Assets/CSS/styles.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 900px)"
+      href="/Assets/CSS/smallscreen.css"
+    />
+    <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Neucha&display=swap"
+      rel="stylesheet"
+    />
+    <!--FontAwesome-->
+    <script
+      src="https://kit.fontawesome.com/e191672493.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>INTown</title>
-        <!-- Foundation CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-            integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-        <!--Our CSS-->
-        <link rel="stylesheet" href="assets/CSS/styles.css">
-        <!--Google Fonts-->
-        <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
-        <!--FontAwesome-->
-        <script src="https://kit.fontawesome.com/e191672493.js" crossorigin="anonymous"></script>
-    </head>
-
-    <body class="landing-page">
-        <div class="grid-y medium-grid-frame" id="body-content">
-
-        <ul class="menu">
-            <li class="menu-text">INTown</li>
-        </ul>
-
-        <div class="grid-frame">
-            <div class="grid-x grid-padding-x" id="landing-page">
-                <div class="cell small-4 align-self-middle" id="intro">
-                    <h3>About INTown<h3>
-                </div>
-                <!--Select a neighborhood search box-->
-                <div class="cell small-4 align-self-middle" id="searchbox">
-                    <form  class="search-box" id="search-box" name="search-box" action="assets/results.html">
-                        <label>Select a Neighborhood:
-                            <select id="neighborhoods">
-                                <option>----- Select Neighborhood -----</option>
-                                <option name="barclay-downs" value="Barclay Downs">Barclay Downs</option>
-                                <option name="cotswold" value="Cotswold">Cotswold</option>
-                                <option name="dilworth" value="Dilworth">Dilworth</option>
-                                <option name="chantilly" value="Chantilly">Chantilly</option>
-                                <option name="eastover" value="Eastover">Eastover</option>
-                                <option name="elizabeth" value="Elizabeth">Elizabeth</option>
-                                <option name="greenville" value="Greenville">Greenville</option>
-                                <option name="montford" value="Montford">Montford</option>
-                                <option name="north-davidson" value="North Davidson">North Davidson</option>
-                                <option name="oakhurst" value="Oakhurst">Oakhurst</option>
-                                <option name="plaza-midwood" value="Plaza Midwood">Plaza Midwood</option>
-                                <option name="south-end" value="South End">South End</option>
-                                <option name ="myers-park" value="Myers Park">Myers Park</option>
-                                <option name ="first-ward" value="First Ward">First Ward</option>
-                                <option name ="fourth-ward" value="Fourth Ward">Fourth Ward</option>
-                            </select>
-                            <div class="grid-x grid-padding-x">
-                                <fieldset class="large-12 cell">
-                                    <legend>Choose Search Criteria</legend>
-                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" value= "outdoor-areas"><label
-                                        for="outdoor-areas">Outdoor Areas</label>
-                                    <input type="radio" name="restaurants" id="restaurants" value="restaurants"><label
-                                        for="restaurants">Restaurants & Bars</label><br><!--added page break for radios-->
-                                    <input type="radio" name="popular" id="popular" value="popluar"><label
-                                        for="popular">Popular</label>
-                                    <input type="radio" name="events" id="events" value="events"><label
-                                        for="events">Events</label>
-                                </fieldset>
-                            </div>
-                        </label>
-                        <button id="submit-btn" class="submit primary" onclick="passValue()">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script src="assets/JavaScript/script.js"></script>
-    </body>
+  <body class="landing-page">
+    <div class="grid-y medium-grid-frame" id="body-content">
+      <!--Header-->
+      <header>
+        <h3 id="intown">INTown</h3>
+      </header>
+      <!--Main body cells(columns)-->
+      <main class="grid-x container">
+        <!--INTown tagline/description-->
+        <section class="cell large-5 large-offset-1 align-self-middle">
+          <div>
+            <p id="tagline">
+              Explore Charlotte neighborhoods while doing things you love.
+            </p>
+          </div>
+        </section>
+        <!--Search box-->
+        <section class="cell large-6 align-self-middle">
+          <div class="grid-y container" id="searchbox">
+            <h3 id="start-exploring">Start Exploring</h3>
+            <!--form sends results to results.html-->
+            <form action="/assets/results.html">
+              <div class="cell">
+                <label id="select-neighborhood"
+                  ><i class="fas fa-home"></i> Select a Neighborhood:</label
+                >
+                <select>
+                  <option name="barclay-downs" value="Barclay Downs"
+                    >Barclay Downs</option
+                  >
+                  <option name="cotswold" value="Cotswold">Cotswold</option>
+                  <option name="dilworth" value="Dilworth">Dilworth</option>
+                  <option name="chantilly" value="Chantilly">Chantilly</option>
+                  <option name="eastover" value="Eastover">Eastover</option>
+                  <option name="elizabeth" value="Elizabeth">Elizabeth</option>
+                  <option name="greenville" value="Greenville"
+                    >Greenville</option
+                  >
+                  <option name="montford" value="Montford">Montford</option>
+                  <option name="north-davidson" value="North Davidson"
+                    >North Davidson</option
+                  >
+                  <option name="oakhurst" value="Oakhurst">Oakhurst</option>
+                  <option name="plaza-midwood" value="Plaza Midwood"
+                    >Plaza Midwood</option
+                  >
+                  <option name="south-end" value="South End">South End</option>
+                  <option name="first-ward" value="First Ward"
+                    >First Ward</option
+                  >
+                  <option name="fourth-ward" value="Fourth ward"
+                    >Fourth Ward</option
+                  >
+                </select>
+              </div>
+              <div class="cell">
+                <fieldset>
+                  <legend>
+                    <i class="fas fa-search"></i> Search Criteria:
+                  </legend>
+                  <input
+                    type="checkbox"
+                    value="outdoor-areas"
+                    id="outdoor-areas"
+                  /><label for="outdoor-areas">Outdoor Areas</label><br />
+                  <input type="checkbox" value="events" id="events" /><label
+                    for="events"
+                    >Events</label
+                  ><br />
+                  <input
+                    type="checkbox"
+                    value="restautants"
+                    id="restautants"
+                  /><label for="restautants">Restaurants & Bars</label><br />
+                  <input type="checkbox" value="popular" id="popular" /><label
+                    for="popular"
+                    >Popular Destinations</label
+                  >
+                </fieldset>
+              </div>
+              <button id="searchBtn" onclick="passValue()">Search</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="assets/JavaScript/script.js"></script>
+  </body>
+</html>

@@ -26,6 +26,13 @@ header {
   color: white;
 }
 
+a {
+  font-family: "Neucha", cursive;
+  color: white;
+} a:hover {
+  color: white;
+}
+
 /* styles containers holding body content */
 .container {
   height: 100%;

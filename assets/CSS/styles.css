@@ -146,6 +146,7 @@ select {
 .card-heading {
   font-family: "Neucha", cursive;
 }
+
 /* setting media query rules for the cards on phones */
 @media screen and (max-width: 700px) {
 .cardContainer
@@ -155,22 +156,22 @@ select {
   display: flex; 
 }
 .card {
-  /* width: 100%; */
-  display: inline;
+  width: 100%;
+  /* display: inline; */
 }
 .card-divider {
   text-align: left;
   float: left;
   
 }
-.itemOne, .itemTwo, .itemThree, .itemFour {
-  float: left;
+li {
+  /* float: left; */
   margin-left: 3px;
+  /* display: block; */
 }
 }
 
-
-
+/* media query for index.html */
 @media screen and (max-width: 900px) {
   /* styles body */
 .landing-page {

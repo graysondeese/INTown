@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="CSS/styles.css" />
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
@@ -24,83 +31,54 @@
     <!-- for map  -->
     <div id="map"></div>
 
-    <!-- cards for search criteria -->
-    <div class="card">
-      <div class="cardContainer">
-        <!--card 1-->
-        <div class="card1">
-          <div class="cardHeader">
-            <h4><b>Events</b></h4>
-          </div>
-          <div class="itemOne">
-            <p>Item One</p>
-          </div>
-          <div class="itemTwo">
-            <p>Item Two</p>
-          </div>
-          <div class="itemThree">
-            <p>Item Three</p>
-          </div>
-          <div class="itemThree">
-            <p>Item Three</p>
-          </div>
+    <!-- cards for the results -->
+    <div class="cardContainer" id="card-container">
+      <!-- card 1 -->
+      <div class="card card1 events">
+        <div class="card-divider fas fa-calendar-week">
+          <b>Events</b>
         </div>
-
-        <!--card 2-->
-        <div class="card2">
-          <div class="cardHeader">
-            <h4><b>Outdoor Spaces</b></h4>
-          </div>
-          <div class="itemOne">
-            <p>Item One</p>
-          </div>
-          <div class="itemTwo">
-            <p>Item Two</p>
-          </div>
-          <div class="itemThree">
-            <p>Item Three</p>
-          </div>
-          <div class="itemThree">
-            <p>Item Three</p>
-          </div>
+        <div class="card-section">
+          <div class="itemOne"><p>Item One</p></div>
+          <div class="itemTwo"><p>Item Two</p></div>
+          <div class="itemThree"><p>Item Three</p></div>
+          <div class="itemFour"><p>Item Four</p></div>
         </div>
-
-        <!--card 3-->
-        <div class="card3">
-          <div class="cardHeader">
-            <h4><b>Popular Destinations</b></h4>
-          </div>
-          <div class="itemOne">
-            <p>Item One</p>
-          </div>
-          <div class="itemTwo">
-            <p>Item Two</p>
-          </div>
-          <div class="itemThree">
-            <p>Item Three</p>
-          </div>
-          <div class="itemThree">
-            <p>Item Three</p>
-          </div>
+      </div>
+      <!-- card 2 -->
+      <div class="card card2 outdoor-areas">
+        <div class="card-divider fas fa-campground">
+          <b>Outdoor Spaces</b>
         </div>
-
-        <!--card 4-->
-        <div class="card4">
-          <div class="cardHeader">
-            <h4><b>Restaurants & Bars</b></h4>
-          </div>
-          <div class="itemOne">
-            <p>Item One</p>
-          </div>
-          <div class="itemTwo">
-            <p>Item Two</p>
-          </div>
-          <div class="itemThree">
-            <p>Item Three</p>
-          </div>
-          <div class="itemFour">
-            <p>Item Four</p>
-          </div>
+        <div class="card-section">
+          <div class="itemOne"><p>Item One</p></div>
+          <div class="itemTwo"><p>Item Two</p></div>
+          <div class="itemThree"><p>Item Three</p></div>
+          <div class="itemFour"><p>Item Four</p></div>
+        </div>
+      </div>
+      <!-- card 3 -->
+      <div class="card card3 popular">
+        <div class="card-divider fas fa-fire">
+          <b>Popular</b>
+        </div>
+        <div class="card-section">
+          <div class="itemOne"><p>Item One</p></div>
+          <div class="itemTwo"><p>Item Two</p></div>
+          <div class="itemThree"><p>Item Three</p></div>
+          <div class="itemFour"><p>Item Four</p></div>
+        </div>
+      </div>
+      <!-- card 4 -->
+      <div class="card card4 restaurants">
+        <div class="card-divider fas fa-utensils">
+          <b>Restaurants & Bars</b>
+        </div>
+        <div class="card-section">
+          <div class="itemOne"><p>Item One</p></div>
+          <div class="itemTwo"><p>Item Two</p></div>
+          <div class="itemThree"><p>Item Three</p></div>
+          <div class="itemFour"><p>Item Four</p></div>
         </div>
       </div>
     </div>

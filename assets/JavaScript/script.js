@@ -2,67 +2,63 @@
 var neighborhoods = [
   {
     title: "Barclay Downs",
-    coords: { lat: 35.1627482, lng: -80.8541635 },
-  },
-  {
-    title: "Uptown",
-    coords: { lat: 35.2058895, lng: -80.8602408 },
+    coords: { lat: 35.161352, lng: -80.838031 },
   },
   {
     title: "South End",
-    coords: { lat: 35.2125569, lng: -80.867532 },
+    coords: { lat: 35.2125569, lng: -80.8588 },
   },
   {
     title: "North Davidson",
-    coords: { lat: 35.2482123, lng: -80.8106876 },
+    coords: { lat: 35.2482123, lng: -80.8018 },
   },
   {
     title: "Plaza Midwood",
-    coords: { lat: 35.2261962, lng: -80.8123889 },
+    coords: { lat: 35.2239, lng: -80.8018 },
   },
   {
     title: "Dilworth",
-    coords: { lat: 35.2058895, lng: -80.8602408 },
+    coords: { lat: 35.2058895, lng: -80.8516 },
   },
   {
     title: "Cotswold",
-    coords: { lat: 35.1827687, lng: -80.8039828 },
+    coords: { lat: 35.1849, lng: -80.7907 },
   },
   {
     title: "Oakhurst",
-    coords: { lat: 35.1923152, lng: -80.7866842 },
+    coords: { lat: 35.1914, lng: -80.7771 },
   },
   {
     title: "Myers Park",
-    coords: { lat: 35.182864, lng: -80.8449514 },
+    coords: { lat: 35.1797, lng: -80.8262 },
   },
   {
     title: "Montford",
-    coords: { lat: 35.1684221, lng: -80.8581215 },
+    coords: { lat: 35.1744, lng: -80.8502 },
   },
   {
     title: "Eastover",
-    coords: { lat: 35.1936622, lng: -80.8283562 },
+    coords: { lat: 35.1924, lng: -80.8184 },
   },
   {
     title: "Elizabeth",
-    coords: { lat: 35.2121982, lng: -80.8299537 },
+    coords: { lat: 35.2142, lng: -80.8184 },
   },
   {
     title: "Chantilly",
-    coords: { lat: 35.2115244, lng: -80.8170717 },
+    coords: { lat: 35.2115244, lng: -80.8087 },
   },
   {
     title: "First Ward",
-    coords: { lat: 35.2260366, lng: -80.8444644 },
+    coords: { lat: 35.2264, lng: -80.835 },
   },
   {
     title: "Fourth Ward",
-    coords: { lat: 35.2346569, lng: -80.8539655 },
+    coords: { lat: 35.231, lng: -80.8419 },
   },
   {
     title: "Greenville",
-    coords: { lat: 35.2428535, lng: -80.8522108 },
+    coords: { lat: 35.2419, lng: -80.8422 },
   },
 ];
 
@@ -161,12 +157,14 @@ function initMap() {
   neighborhoodMarker(neighborhoodCoords);
 
   function neighborhoodMarker() {
+    // add marker
     var marker = new google.maps.Marker({
       position: neighborhoodCoords,
       map: map,
       animation: google.maps.Animation.DROP,
     });
 
+    // zoom and pan to marker
     map.panTo(neighborhoodCoords);
     map.setZoom(15);
   }

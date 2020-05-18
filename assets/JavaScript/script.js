@@ -137,12 +137,12 @@ function initMap() {
     //map options
     center: { lat: 35.2271, lng: -80.8431 },
     zoom: 12,
+    disableDefaultUI: true,
   });
   // Get selected neighborhoods from storage
   var neighborhood = localStorage.getItem("neighborhood");
   console.log(neighborhood);
   var neighborhoodCoords;
-
   // Iterate through the object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -166,8 +166,46 @@ function initMap() {
     // zoom and pan to marker
     map.panTo(neighborhoodCoords);
     map.setZoom(15);
+    getPlaces()
   }
 }
+
+// Get data from API
+function getPlaces() {
+  // Get neighborhood from local storage
+  var neighborhood = localStorage.getItem("neighborhood")
+  console.log(neighborhood)
+  
+  // Iterate through object
+  for (var i = 0; i < neighborhoods.length; i++) {
+    // If an objects title is equal to selected neighborhood
+    if (neighborhood === neighborhoods[i].title) {
+      // Assign the coordinates to a variable
+      var neighborhoodCoords = neighborhoods[i].coords;
+      console.log(neighborhoodCoords);
+    }
+  }
+
+  // Get places service
+  var service = new google.maps.places.PlacesService(map)
+  // Query for nearby places
+  var request = {
+    location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
+    radius: "2000",
+    type: ["restaurant", "bar"],
+  }
+  console.log("anything")
+  service.nearbySearch(request, handleResults)
+}
+
+function handleResults(results, status) {
+  if(status == google.maps.places.PlacesServiceStatus.OK) {
+    for(var i=0; i < results.length; i++) {
+      console.log(results[i])
+    }
+  }
+}
+
 
 //==========Events/Ticketmaster API===============
 var ticketMasterKey = "inHlvBLTGUTbsQyVFJkNPakSwfAWIMCa";

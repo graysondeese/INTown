@@ -68,14 +68,14 @@
   }
   
   /* styles search button */
-  #searchBtn {
+  #submit-btn {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
   color: white;
   background-color: gray;
   border: 1px solid grey;
-  } #searchBtn:hover {
+  } #submit-btn:hover {
   color: black;
   background-color: white;
   }

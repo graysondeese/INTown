@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
             integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
         <!--Our CSS-->
+<<<<<<< HEAD
         <link rel="stylesheet" href="Assets/CSS/styles.css">
         <!--Google Fonts-->
         <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
@@ -18,10 +19,15 @@
         <!--FontAwesome-->
         <script src="https://kit.fontawesome.com/e191672493.js" crossorigin="anonymous"></script>
     </head>
+=======
+        <link rel="stylesheet" href="assets/styles.css">
+       </head>
+>>>>>>> d1c2798c156a39c6d6f89df1bde64f7eafbf498e
 
     <body class="landing-page">
         <div class="grid-y medium-grid-frame" id="body-content">
 
+<<<<<<< HEAD
             <!--Header-->
             <header>
                 <h3 id="intown">INTown</h3>
@@ -76,6 +82,56 @@
                     </div>
                 </section>
             </main>
+=======
+        <ul class="menu">
+            <li class="menu-text">INTown</li>
+        </ul>
+
+        <div class="grid-frame">
+            <div class="grid-x grid-padding-x" id="landing-page">
+                <div class="cell small-4 align-self-middle" id="intro">
+                    <h3>About INTown<h3>
+                </div>
+                <!--Select a neighborhood search box-->
+                <div class="cell small-4 align-self-middle" id="searchbox">
+                    <!--took out form action="./results.html"></form> on line 31-->
+                    <form  class="search-box" id="search-box" name="search-box">
+                        <label>Select a Neighborhood:
+                            <select>
+                                <option name="barclay-downs" id="barclay-downs">Barclay Downs</option>
+                                <option name="cotswold" id="cotswold">Cotswold</option>
+                                <option name="dilworth" id="dilworth">Dilworth</option>
+                                <option name="chantilly" id="chantilly">Chantilly</option>
+                                <option name="eastover" id="eastover">Eastover</option>
+                                <option name="elizabeth" id="elizabeth">Elizabeth</option>
+                                <option name="greenville" id="greenville">Greenville</option>
+                                <option name="montford" id="montford">Montford</option>
+                                <option name="north-davidson" id="north-davidson">North Davidson</option>
+                                <option name="oakhurst" id="oakhurst">Oakhurst</option>
+                                <option name="plaza-midwood" id="plaza-midwood">Plaza Midwood</option>
+                                <option name="south-end" id="south-end">South End</option>
+                                <option name="uptown" id="uptown">Uptown</option>
+                            </select>
+                            <div class="grid-x grid-padding-x">
+                                <fieldset class="large-12 cell">
+                                    <legend>Choose Search Criteria</legend>
+                                    <input type="radio" name="outdoor-areas" id="outdoor-areas" value= "outdoor-areas"><label
+                                        for="outdoor-areas">Outdoor Areas</label>
+                                    <input type="radio" name="restaurants" id="restaurants" value="restaurants"><label
+                                        for="restaurants">Restaurants & Bars</label><br><!--added page break for radios-->
+                                    <input type="radio" name="popular" id="popular" value="popluar"><label
+                                        for="popular">Popular</label>
+                                    <input type="radio" name="events" id="events" value="events"><label
+                                        for="events">Events</label>
+                                </fieldset>
+                            </div>
+                        </label>
+                        <!--created an onclick to collect values of radio buttons-->
+                        <button id="submit-btn" class="submit primary">Search</button>
+                    </form>
+                </div>
+            </div>
+>>>>>>> d1c2798c156a39c6d6f89df1bde64f7eafbf498e
         </div>
         <script src="./assets/JavaScript/script.js"></script>
     </body>

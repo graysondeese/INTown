@@ -34,8 +34,9 @@
           value="outdoor-areas"
           id="outdoor-areas"
           onchange="outdoorCheck()"
+          onclick="displayOutdoorCard()"
         /><label for="outdoor-areas">Outdoor Areas</label><br />
-        <input type="checkbox" value="events" id="events" /><label
+        <input type="checkbox" value="events" id="events" onclick="displayEventsCard()"/><label
           for="events"
           >Events</label
         ><br />
@@ -43,9 +44,10 @@
           type="checkbox"
           name="restaurants"
           id="restaurants"
-          onclick="restaurantCheck()"
+          onchange="restaurantCheck()"
+          onclick="displayRestaurantCard()"
           /><label for="restaurants">Restaurants & Bars</label><br />
-        <input type="checkbox" value="popular" id="popular" onclick="popularCheck()"/><label
+        <input type="checkbox" value="popular" id="popular" onchange="popularCheck()" onclick="displayPopularCard()"/><label
           for="popular"
           >Popular Destinations</label>
       </fieldset>
@@ -57,7 +59,7 @@
       <div class="cardContainer" id="card-container">
 
         <!-- card 1 -->
-        <div class="card card1 events">
+        <div class="card card1 events-card">
           <!--Card heading div-->
           <div class="card-divider">
             <h5 class="card-heading"><i class="fas fa-calendar-week"></i> Events</h5>
@@ -80,7 +82,7 @@
         </div>
 
         <!-- card 2 -->
-        <div class="card card2 outdoor-areas">
+        <div class="card card2 outdoor-areas-card">
           <!--Card heading div-->
           <div class="card-divider">
             <h5 class="card-heading"><i class="fas fa-campground"></i> Outdoor Spaces</h5>
@@ -123,7 +125,7 @@
         </div>
 
         <!-- card 3 -->
-        <div class="card card3 popular">
+        <div class="card card3 popular-card">
           <!--card heading-->
           <div class="card-divider">
             <h5 class="card-heading"><i class="fas fa-fire"></i> Popular Destinations</h5>
@@ -166,7 +168,7 @@
         </div>
 
         <!-- card 4 -->
-        <div class="card card4 restaurants">
+        <div class="card card4 restaurant-card">
           <!--card heading-->
           <div class="card-divider">
             <h5 class="card-heading"><i class="fas fas fa-utensils"></i> Restauraunts & Bars</h5>

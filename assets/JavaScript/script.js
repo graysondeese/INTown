@@ -287,6 +287,26 @@ function getPopular() {
   }
 }
 
+// Check if popular is checked
+function popularCheck() {
+  var popularCheck = document.getElementById("popular").checked
+  if(popularCheck == true) {
+    getPopular()
+  } else {
+    clearPopularMarkers()
+  }
+}
+
+//Check if restaurants is checked
+function restaurantCheck() {
+  var restaurantCheck = document.getElementById("restaurants").checked
+  if(restaurantCheck == true) {
+    getRestaurants()
+  } else {
+    clearRestaurantMarkers()
+  }
+}
+
 // Check if outdoors is checked
 function outdoorCheck() {
   var outdoorCheck = document.getElementById("outdoor-areas").checked
@@ -352,10 +372,19 @@ function setMapOnAll(arr, map) {
   }
 }
 
-function clearOutdoorMarkers(){
-  console.log("clearing")
+function clearOutdoorMarkers() {
   setMapOnAll(outdoorMarkers, null)
   outdoorMarkers = []
+}
+
+function clearPopularMarkers() {
+  setMapOnAll(popularMarkers, null)
+  popularMarkers = []
+}
+
+function clearRestaurantMarkers() {
+  setMapOnAll(restaurantMarkers, null)
+  restaurantMarkers = []
 }
 
 //==========Events/Ticketmaster API===============

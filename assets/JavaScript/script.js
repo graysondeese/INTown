@@ -129,6 +129,7 @@ function initMap() {
       position: neighborhoodCoords,
       map: map,
       animation: google.maps.Animation.DROP,
+      icon: "https://img.icons8.com/fluent/48/000000/order-delivered.png"
     });
 
     // zoom and pan to marker

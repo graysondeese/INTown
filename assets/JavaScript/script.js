@@ -109,7 +109,7 @@ if (submitBtn) {
   });
 }
 
-//selects card container on results page and determines which radio button was selected and should be displayed.
+//selects card container on results page and determines which check box was selected and should be displayed.
 var cardContainer = document.getElementById("card-container");
 if (cardContainer) {
   //loops through url array
@@ -178,33 +178,69 @@ function initMap() {
     // zoom and pan to marker
     map.panTo(neighborhoodCoords);
     map.setZoom(15);
-    getPlaces()
   }
 }
 
-// Get data from API
-function getPlaces() {
-  // Get neighborhood from local storage
-  var neighborhood = localStorage.getItem("neighborhood")
-  console.log(neighborhood)
-  
+var markers = []
+
+// Check if restaurant box is checked
+function restaurantCheck(){ 
+  var restaurantCheck = document.getElementById("restaurants").checked
+  if(restaurantCheck == true) {
+    getRestaurants()
+  }
+}
+// Get restaurant data from API
+function getRestaurants() {
+  // Get selected neighborhoods from storage
+  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
     if (neighborhood === neighborhoods[i].title) {
       // Assign the coordinates to a variable
       var neighborhoodCoords = neighborhoods[i].coords;
-      console.log(neighborhoodCoords);
     }
   }
-
   // Get places service
   var service = new google.maps.places.PlacesService(map)
   // Query for nearby places
   var request = {
     location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
-    radius: "2000",
+    radius: "1500",
     type: ["restaurant"],
+  }
+  service.nearbySearch(request, handleResults)
+  
+}
+
+// Check if popular is checked
+function popularCheck() {
+  var popularCheck = document.getElementById("popular").checked
+  if(popularCheck == true) {
+    getPopular()
+  }
+}
+
+// Get popular places data 
+function getPopular() {
+  // Get selected neighborhoods from storage
+  var neighborhood = localStorage.getItem("neighborhood"); 
+  // Iterate through object
+  for (var i = 0; i < neighborhoods.length; i++) {
+    // If an objects title is equal to selected neighborhood
+    if (neighborhood === neighborhoods[i].title) {
+      // Assign the coordinates to a variable
+      var neighborhoodCoords = neighborhoods[i].coords;
+    }
+  }
+  // Get places service
+  var service = new google.maps.places.PlacesService(map)
+  // Query for nearby places
+  var request = {
+    location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
+    radius: "1500",
+    type: ["aquarium", "art-gallery", "shopping-mall", "tourist-attraction", "movie-theater"],
   }
   service.nearbySearch(request, handleResults)
 }
@@ -224,6 +260,7 @@ function addMarker(results) {
     map: map,
     animation: google.maps.Animation.DROP
   })
+  markers.push(marker)
 }
 
 

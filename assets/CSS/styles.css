@@ -24,6 +24,7 @@ header {
   color: white;
 }
 
+/* styles header anchor tags */
 header a {
   font-family: "Neucha", cursive;
   color: white;
@@ -52,6 +53,17 @@ header a {
   padding: 25px;
   width: 65%;
   margin: 0 auto;
+}
+
+/* styles text inside Description section */
+#description-text {
+  padding: 10px;
+  margin-bottom: .5rem;
+}
+
+/* styles the div holding the description */
+#description {
+  margin-bottom: 0;
 }
 
 /* styles "Start Exploring" text */
@@ -143,8 +155,16 @@ i {
   padding: .75rem;
 }
 
+/* aligns list items text with itself instead of to the bullet point */
 ul {
   list-style-position: outside;
+}
+
+/* styles anchor tags inside Events card */
+#events-list a {
+  color: black;
+} #events-list a:hover {
+  font-weight: bold;
 }
 
 

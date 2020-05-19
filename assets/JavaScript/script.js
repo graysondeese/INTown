@@ -244,28 +244,29 @@ function ticketMasterFunc() {
   }).then(function (response) {
     console.log(response);
    
-    var eventsCard = $("#events-list");
-    var itemOne = $("#event-item-one").text(response._embedded.events[0].name);
-    var itemTwo = $("#event-item-two").text(response._embedded.events[1].name);
-    var itemThree = $("#event-item-three").text(response._embedded.events[2].name);
-    var itemFour = $("#event-item-four").text(response._embedded.events[3].name);
-    var itemFive = $("#event-item-five").text(response._embedded.events[4].name);
-    var itemSix = $("#event-item-six").text(response._embedded.events[5].name);
-    var itemSeven = $("#event-item-seven").text(response._embedded.events[6].name);
-    var itemEight = $("#event-item-eight").text(response._embedded.events[7].name);
-    var itemNine = $("#event-item-nine").text(response._embedded.events[8].name);
-    var itemTen = $("#event-item-ten").text(response._embedded.events[9].name);
+    
+    var itemOne = $("<a>").attr("href", response._embedded.events[0].url).text(response._embedded.events[0].name);
+    var itemTwo = $("<a>").attr("href", response._embedded.events[1].url).text(response._embedded.events[1].name);
+    var itemThree = $("<a>").attr("href", response._embedded.events[2].url).text(response._embedded.events[2].name);
+    var itemFour = $("<a>").attr("href", response._embedded.events[3].url).text(response._embedded.events[3].name);
+    var itemFive = $("<a>").attr("href", response._embedded.events[4].url).text(response._embedded.events[4].name);
+    var itemSix = $("<a>").attr("href", response._embedded.events[5].url).text(response._embedded.events[5].name);
+    var itemSeven = $("<a>").attr("href", response._embedded.events[6].url).text(response._embedded.events[6].name);
+    var itemEight = $("<a>").attr("href", response._embedded.events[7].url).text(response._embedded.events[7].name);
+    var itemNine = $("<a>").attr("href", response._embedded.events[8].url).text(response._embedded.events[8].name);
+    var itemTen = $("<a>").attr("href", response._embedded.events[9].url).text(response._embedded.events[9].name);
 
-    $(eventsCard).append(itemOne);
-    $(eventsCard).append(itemTwo);
-    $(eventsCard).append(itemThree);
-    $(eventsCard).append(itemFour); 
-    $(eventsCard).append(itemFive); 
-    $(eventsCard).append(itemSix); 
-    $(eventsCard).append(itemSeven); 
-    $(eventsCard).append(itemEight); 
-    $(eventsCard).append(itemNine); 
-    $(eventsCard).append(itemTen); 
+
+    $("#event-item-one").append(itemOne);
+    $("#event-item-two").append(itemTwo);
+    $("#event-item-three").append(itemThree);
+    $("#event-item-four").append(itemFour); 
+    $("#event-item-five").append(itemFive); 
+    $("#event-item-six").append(itemSix); 
+    $("#event-item-seven").append(itemSeven); 
+    $("#event-item-eight").append(itemEight); 
+    $("#event-item-nine").append(itemNine); 
+    $("#event-item-ten").append(itemTen); 
   });
 }
 ticketMasterFunc();

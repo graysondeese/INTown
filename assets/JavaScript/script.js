@@ -166,7 +166,7 @@ function initMap() {
     // zoom and pan to marker
     map.panTo(neighborhoodCoords);
     map.setZoom(15);
-    getPlaces()
+    getPlaces();
   }
 }
 
@@ -192,7 +192,7 @@ function getPlaces() {
   var request = {
     location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
     radius: "2000",
-    type: ["restaurant", "bar"],
+    type: ["restaurant"]
   }
   console.log("anything")
   service.nearbySearch(request, handleResults)
@@ -201,7 +201,29 @@ function getPlaces() {
 function handleResults(results, status) {
   if(status == google.maps.places.PlacesServiceStatus.OK) {
     for(var i=0; i < results.length; i++) {
-      console.log(results[i])
+      console.log(results[i].name)
+      // vars for restaraunts
+var restaurantsCard = $("card-section-four");
+var rItemOne = $("#restaurant-item-one").text(results[0].name);
+$(restaurantsCard).append(rItemOne);
+var rItemTwo = $("#restaurant-item-two").text(results[1].name);
+$(restaurantsCard).append(rItemTwo);
+var rItemThree = $("#restaurant-item-three").text(results[2].name);
+$(restaurantsCard).append(rItemThree);
+var rItemFour = $("#restaurant-item-four").text(results[3].name);
+$(restaurantsCard).append(rItemFour);
+var rItemFive = $("#restaurant-item-five").text(results[4].name);
+$(restaurantsCard).append(rItemFive);
+var rItemSix = $("#restaurant-item-six").text(results[5].name);
+$(restaurantsCard).append(rItemSix);
+var rItemSeven = $("#restaurant-item-seven").text(results[6].name);
+$(restaurantsCard).append(rItemSeven);
+var rItemEight = $("#restaurant-item-eight").text(results[7].name);
+$(restaurantsCard).append(rItemEight);
+var rItemNine = $("#restaurant-item-nine").text(results[8].name);
+$(restaurantsCard).append(rItemNine);
+var rItemTen = $("#restaurant-item-ten").text(results[9].name);
+$(restaurantsCard).append(rItemTen);
     }
   }
 }

@@ -25,36 +25,39 @@
       <header class="cell shrink header text-center" id="results-header">
         <h3 id="intown"><a href='../index.html'>INTown</a></h3>
       </header>
-      <fieldset>
-        <legend>
-          <i class="fas fa-search"></i> Search Criteria:
-        </legend>
-        <input
-          type="checkbox"
-          value="outdoor-areas"
-          id="outdoor-areas"
-          onchange="outdoorCheck()"
-          onclick="displayOutdoorCard()"
-        /><label for="outdoor-areas">Outdoor Areas</label><br />
-        <input type="checkbox" value="events" id="events" onclick="displayEventsCard()"/><label
-          for="events"
-          >Events</label
-        ><br />
-        <input
-          type="checkbox"
-          name="restaurants"
-          id="restaurants"
-          onchange="restaurantCheck()"
-          onclick="displayRestaurantCard()"
-          /><label for="restaurants">Restaurants & Bars</label><br />
-        <input type="checkbox" value="popular" id="popular" onchange="popularCheck()" onclick="displayPopularCard()"/><label
-          for="popular"
-          >Popular Destinations</label>
-      </fieldset>
-
+      <!-- search critera -->
+      <div class="topContainer">
+      <div class="searchCritera">
+        <fieldset>
+          <legend>
+            <i class="fas fa-search"></i> Search Criteria:
+          </legend>
+          <input
+            type="checkbox"
+            value="outdoor-areas"
+            id="outdoor-areas"
+            onchange="outdoorCheck()"
+            onclick="displayOutdoorCard()"
+          /><label for="outdoor-areas">Outdoor Areas</label><br />
+          <input type="checkbox" value="events" id="events" onclick="displayEventsCard()"/><label
+            for="events"
+            >Events</label
+          ><br />
+          <input
+            type="checkbox"
+            name="restaurants"
+            id="restaurants"
+            onchange="restaurantCheck()"
+            onclick="displayRestaurantCard()"
+            /><label for="restaurants">Restaurants & Bars</label><br />
+          <input type="checkbox" value="popular" id="popular" onchange="popularCheck()" onclick="displayPopularCard()"/><label
+            for="popular"
+            >Popular Destinations</label>
+        </fieldset>
+      </div>
       <!-- for map  -->
       <div id="map"></div>
-
+    </div>
       <!-- cards for the results -->
       <div class="cardContainer" id="card-container">
 
@@ -62,7 +65,7 @@
         <div class="card card1 events-card">
           <!--Card heading div-->
           <div class="card-divider">
-            <h5 class="card-heading"><i class="fas fa-calendar-week"></i> Events</h5>
+            <h5 class="card-heading"><img class="cardImg" src="https://img.icons8.com/color/48/000000/event-accepted.png"/> Events</h5>
           </div>
           <!--card main body-->
           <div class="card-section" id="card-section-one">
@@ -85,7 +88,7 @@
         <div class="card card2 outdoor-areas-card">
           <!--Card heading div-->
           <div class="card-divider">
-            <h5 class="card-heading"><i class="fas fa-campground"></i> Outdoor Spaces</h5>
+            <h5 class="card-heading"><img class="cardImg" src="https://img.icons8.com/pastel-glyph/64/000000/tree.png"> Outdoor Spaces</h5>
           </div>
           <!--card main body-->
           <div class="card-section" id="card-section-two">
@@ -128,7 +131,7 @@
         <div class="card card3 popular-card">
           <!--card heading-->
           <div class="card-divider">
-            <h5 class="card-heading"><i class="fas fa-fire"></i> Popular Destinations</h5>
+            <h5 class="card-heading"><img class="cardImg" src="https://img.icons8.com/color/48/000000/popular-topic.png"> Popular Destinations</h5>
           </div>
           <!--card main body-->
           <div class="card-section" id="card-section-three">
@@ -161,7 +164,7 @@
         <div class="card card4 restaurant-card">
           <!--card heading-->
           <div class="card-divider">
-            <h5 class="card-heading"><i class="fas fas fa-utensils"></i> Restauraunts & Bars</h5>
+            <h5 class="card-heading"><img class="cardImg" src="https://img.icons8.com/ios-glyphs/30/000000/restaurant.png"> Restauraunts & Bars</h5>
           </div>
           <!--card main body-->
           <div class="card-section" id="card-section-four">

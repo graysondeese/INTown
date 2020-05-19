@@ -84,6 +84,7 @@ $(".card").hide()
 //================Map=====================
 // to hold the map
 var map;
+var neighborhood
 //function for map
 function initMap() {
   // Disable default street stuff
@@ -106,7 +107,7 @@ function initMap() {
     styles: myStyles
   });
   // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood");
+  neighborhood = localStorage.getItem("neighborhood");
   console.log(neighborhood);
   var neighborhoodCoords;
   // Iterate through the object
@@ -168,8 +169,6 @@ function restaurantCheck(){
 }
 // Get restaurant data from API
 function getRestaurants() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -240,8 +239,6 @@ function popularCheck() {
 
 // Get popular places data 
 function getPopular() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -333,8 +330,6 @@ function outdoorCheck() {
 
 // Get outdoor areas data
 function getOutdoor() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood

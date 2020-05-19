@@ -1,7 +1,7 @@
 # INTown
 ****
 Lorem...
-# Collaborators
+# Contributors
 ****
 Helen Darden, Grayson Deese, Emily Renegar, Josh Rivera
 ****

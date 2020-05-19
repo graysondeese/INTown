@@ -1,4 +1,3 @@
-/* styles body */
 .landing-page {
   height: 100vh;
   /* overflow must be added in combination with .grid-frame to add padding&margin */
@@ -89,6 +88,7 @@ select {
 
 /**************** results.html styling *******************/
 
+
 .results-page {
   font-family: "Didact Gothic", sans-serif;
 }
@@ -97,19 +97,10 @@ select {
   background-color: black;
 }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  /* width: 40%; */
-}
-
-.card1 {
-  padding: 2px 16px;
-}
-
 #map {
   height: 50vh;
 }
+
 .cardContainer {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -117,57 +108,71 @@ select {
   background-color: white;
   display: flex;
   flex-direction: row;
-  /* position: absolute; */
   bottom: 0;
   height: 45%;
   color: black;
-  /* background-color: black; */
-}
-
-.card1,
-.card2,
-.card3,
-.card4 {
-  padding: 2px 16px;
-  width: 100%;
-  border-style: solid;
-  border-color: black;
-}
-
-.card-divider {
-  text-align: center;
-  background-color: gray;
-  color: white;
-  /* border-radius: 10px; */
-  margin-top: 5px;
-  padding: .75rem;
 }
 
 .card-heading {
   font-family: "Neucha", cursive;
 }
 
+i {
+  padding: 5px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+  padding: 5px 15px;
+  transition: 0.3s;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+}
+
+.card-section {
+  padding: 1rem 1rem 1rem .5rem;
+}
+
+/* .card1,
+.card2,
+.card3,
+.card4 {
+  padding: 15px;
+  width: 100%;
+  border: 1px solid black;
+} */
+
+.card-divider {
+  text-align: center;
+  background-color: gray;
+  color: white;
+  margin-top: 5px;
+  padding: .75rem;
+}
+
+ul {
+  list-style-position: outside;
+}
+
+
 /* setting media query rules for the cards on phones */
 @media screen and (max-width: 700px) {
-.cardContainer
- {
-  font-size: .7rem;
+.cardContainer {
+  font-size: 1rem;
   flex-direction: column;
   display: flex; 
 }
+
 .card {
   width: 100%;
-  /* display: inline; */
 }
+
 .card-divider {
   text-align: left;
   float: left;
-  
-}
-li {
-  /* float: left; */
-  margin-left: 3px;
-  /* display: block; */
 }
 }
 
@@ -176,8 +181,6 @@ li {
   /* styles body */
 .landing-page {
   height: 100vh;
-    /* overflow must be added in combination with .grid-frame to add padding&margin */
-    /* overflow: hidden; */
   font-family: 'Didact Gothic', sans-serif;
   background-image: url("../Images/charlotte-4k-nightscapes-north-carolina-usa.smaller.jpg");
   background-position: left;
@@ -188,26 +191,26 @@ li {
   }
   
   /* styles header */
-  header {
+header {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 5px;
-  }
+}
   
   /* styles the header text */
-  #intown {
+#intown {
   font-family: 'Neucha', cursive;
   margin-bottom: 0;
   color: white;
-  }
+}
   
   /* styles containers holding body content */
-  .container {
+.container {
   height: 100%;
-  }
+}
   
   /* styles description text in left cell */
-  #tagline {
+#tagline {
   color: white;
   width: 80%;
   margin: 45px auto 35px auto;
@@ -215,43 +218,43 @@ li {
   font-size: 1.75rem;
   line-height: 1.4;
   text-align: center;
-  }
+}
   
   /* styles Search div in right cell */
-  #searchbox {
+#searchbox {
   background-color: white;
   padding: 25px;
   width: 80%;
   margin: 10px auto;
-  }
+}
   
   /* styles "Start Exploring" text */
-  #start-exploring {
+#start-exploring {
   font-family: 'Neucha', cursive;
   margin-bottom: 10px;
-  }
+}
   
   /* styles "Select a Neighborhood:" text */
-  label {
+label {
   font-size: 1rem;
   margin-bottom: 1rem;
-  }
+}
   
   /* styles neighborhood select menu */
-  select {
+select {
   width: auto;
-  }
+}
   
   /* styles search button */
-  #submit-btn {
+#submit-btn {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
   color: white;
   background-color: gray;
   border: 1px solid grey;
-  } #submit-btn:hover {
+} #submit-btn:hover {
   color: black;
   background-color: white;
-  }
+}
 }

@@ -181,13 +181,17 @@ function initMap() {
   }
 }
 
-var markers = []
+var outdoorMarkers = []
+var popularMarkers = []
+var restaurantMarkers = []
 
 // Check if restaurant box is checked
 function restaurantCheck(){ 
   var restaurantCheck = document.getElementById("restaurants").checked
   if(restaurantCheck == true) {
     getRestaurants()
+  } else if (restaurantCheck == false) {
+    clearOutdoorMarkers()
   }
 }
 // Get restaurant data from API
@@ -211,6 +215,24 @@ function getRestaurants() {
     type: ["restaurant"],
   }
   service.nearbySearch(request, handleResults)
+
+  function handleResults(results, status) {
+    if(status == google.maps.places.PlacesServiceStatus.OK) {
+        for(var i=1; i < 10; i++) {
+        console.log(results[i])
+        addMarker(results[i])
+      }
+   }
+  }
+  
+  function addMarker(results) {
+    var marker = new google.maps.Marker({
+      position: results.geometry.location,
+      map: map,
+      animation: google.maps.Animation.DROP,
+    })
+    restaurantMarkers.push(marker)
+  }
   
 }
 
@@ -240,29 +262,82 @@ function getPopular() {
   var request = {
     location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
     radius: "1500",
-    type: ["aquarium", "art-gallery", "shopping-mall", "tourist-attraction", "movie-theater"],
+    type: ["aquarium", "art-gallery", "shopping-mall", "tourist-attraction", "movie-theater", "stadium", "night-club"],
   }
   service.nearbySearch(request, handleResults)
+
+  function handleResults(results, status) {
+    if(status == google.maps.places.PlacesServiceStatus.OK) {
+        for(var i=1; i < 10; i++) {
+        console.log(results[i])
+        addMarker(results[i])
+      }
+   }
+  }
+  
+  function addMarker(results) {
+    var marker = new google.maps.Marker({
+      position: results.geometry.location,
+      map: map,
+      animation: google.maps.Animation.DROP,
+    })
+    popularMarkers.push(marker)
+  }
 }
 
-function handleResults(results, status) {
-  if(status == google.maps.places.PlacesServiceStatus.OK) {
-      for(var i=1; i < 10; i++) {
-      console.log(results[i])
-      addMarker(results[i])
+// Check if outdoors is checked
+function outdoorCheck() {
+  var outdoorCheck = document.getElementById("outdoor-areas").checked
+  if(outdoorCheck == true) {
+    getOutdoor()
+  } 
+}
+
+// Get outdoor areas data
+function getOutdoor() {
+  // Get selected neighborhoods from storage
+  var neighborhood = localStorage.getItem("neighborhood"); 
+  // Iterate through object
+  for (var i = 0; i < neighborhoods.length; i++) {
+    // If an objects title is equal to selected neighborhood
+    if (neighborhood === neighborhoods[i].title) {
+      // Assign the coordinates to a variable
+      var neighborhoodCoords = neighborhoods[i].coords;
     }
- }
+  }
+  // Get places service
+  var service = new google.maps.places.PlacesService(map)
+  // Query for nearby places
+  var request = {
+    location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
+    radius: "1500",
+    type: ["park"],
+  }
+  service.nearbySearch(request, handleResults)
+  
+  function handleResults(results, status) {
+    if(status == google.maps.places.PlacesServiceStatus.OK) {
+        for(var i=1; i < 10; i++) {
+        console.log(results[i])
+        addMarker(results[i])
+      }
+   }
+  }
+  
+  function addMarker(results) {
+    var marker = new google.maps.Marker({
+      position: results.geometry.location,
+      map: map,
+      animation: google.maps.Animation.DROP,
+    })
+    outdoorMarkers.push(marker)
+  }
 }
 
-function addMarker(results) {
-  var marker = new google.maps.Marker({
-    position: results.geometry.location,
-    map: map,
-    animation: google.maps.Animation.DROP
-  })
-  markers.push(marker)
-}
-
+// function clearOutdoorMarkers(){
+//   setMapOnAll(null)
+//   clearOutdoorMarkers = []
+// }
 
 //==========Events/Ticketmaster API===============
 var ticketMasterKey = "inHlvBLTGUTbsQyVFJkNPakSwfAWIMCa";

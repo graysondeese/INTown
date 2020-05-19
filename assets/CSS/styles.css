@@ -1,7 +1,6 @@
+/* styles index.html body element */
 .landing-page {
   height: 100vh;
-  /* overflow must be added in combination with .grid-frame to add padding&margin */
-  /* overflow: hidden; */
   font-family: "Didact Gothic", sans-serif;
   background-image: url("../Images/charlotte-4k-nightscapes-north-carolina-usa.jpg");
   background-position: left;
@@ -25,7 +24,7 @@ header {
   color: white;
 }
 
-a {
+header a {
   font-family: "Neucha", cursive;
   color: white;
 } a:hover {
@@ -135,15 +134,6 @@ i {
 .card-section {
   padding: 1rem 1rem 1rem .5rem;
 }
-
-/* .card1,
-.card2,
-.card3,
-.card4 {
-  padding: 15px;
-  width: 100%;
-  border: 1px solid black;
-} */
 
 .card-divider {
   text-align: center;

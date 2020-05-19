@@ -155,8 +155,16 @@ i {
   padding: .75rem;
 }
 
+/* aligns list items text with itself instead of to the bullet point */
 ul {
   list-style-position: outside;
+}
+
+/* styles anchor tags inside Events card */
+#events-list a {
+  color: black;
+} #events-list a:hover {
+  font-weight: bold;
 }
 
 

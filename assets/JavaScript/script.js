@@ -69,37 +69,6 @@ function passValue() {
   return true;
 }
 
-// check url
-var urlArray = ["outdoor-areas", "restaurants", "popular", "events"];
-//takes a word, checks if its true returns true or false
-function checkIfParamIsTrue(word) {
-  var queryString = window.location.search;
-  //console.log(queryString);
-  var urlParams = new URLSearchParams(queryString);
-  //console.log(urlParams);
-  var keyword = urlParams.get(word);
-  return keyword === "true";
-}
-
-//=============Submit button and checkboxes========================
-
-function submitButton() {
-  var urlParams = "?";
-
-  // for (i = 0; i < urlArray.length; i++) {
-  //   var checkBox = document.querySelector("#" + urlArray[i]);
-  //   console.log(checkBox);
-  //   if (checkBox.checked == true) {
-  //     //adding string that got the id
-  //     urlParams += urlArray[i] + "=true&";
-  //   }
-  // }
-  console.log(urlParams);
-  //combining route of file with params--building URL
-  window.location = "./assets/results.html" + urlParams;
-  console.log(location.href);
-}
-
 var submitBtn = document.getElementById("submit-btn");
 if (submitBtn) {
   submitBtn.addEventListener("click", function (event) {
@@ -109,24 +78,8 @@ if (submitBtn) {
   });
 }
 
-//selects card container on results page and determines which check box was selected and should be displayed.
-var cardContainer = document.getElementById("card-container");
-if (cardContainer) {
-  //loops through url array
-  for (i = 0; i < urlArray.length; i++) {
-    var param = urlArray[i];
-    var paramIsTrue = checkIfParamIsTrue(param);
-    if (paramIsTrue) {
-    } else {
-      //getElbyclassname grabs items from an array
-      var cardWithClass = document.getElementsByClassName(param);
-      //displays whichever options were selected
-      cardWithClass[0].style.display = "none";
-    }
+$(".card").hide()
 
-    console.log(param, paramIsTrue);
-  }
-}
 //================Map=====================
 // to hold the map
 var map;
@@ -185,13 +138,29 @@ var outdoorMarkers = []
 var popularMarkers = []
 var restaurantMarkers = []
 
+function displayEventsCard() {
+  $(".events-card").show()
+}
+
+function displayOutdoorCard() {
+  $(".outdoor-areas-card").show()
+}
+
+function displayPopularCard() {
+  $(".popular-card").show()
+}
+
+function displayRestaurantCard(){
+  $(".restaurant-card").show()
+}
+
 // Check if restaurant box is checked
 function restaurantCheck(){ 
   var restaurantCheck = document.getElementById("restaurants").checked
   if(restaurantCheck == true) {
     getRestaurants()
-  } else if (restaurantCheck == false) {
-    clearOutdoorMarkers()
+  } else {
+    clearRestaurantMarkers()
   }
 }
 // Get restaurant data from API
@@ -221,6 +190,27 @@ function getRestaurants() {
         for(var i=1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
+        var restaurantsCard = $("card-section-four");
+        var rItemOne = $("#restaurant-item-one").text(results[0].name);
+        $(restaurantsCard).append(rItemOne);
+        var rItemTwo = $("#restaurant-item-two").text(results[1].name);
+        $(restaurantsCard).append(rItemTwo);
+        var rItemThree = $("#restaurant-item-three").text(results[2].name);
+        $(restaurantsCard).append(rItemThree);
+        var rItemFour = $("#restaurant-item-four").text(results[3].name);
+        $(restaurantsCard).append(rItemFour);
+        var rItemFive = $("#restaurant-item-five").text(results[4].name);
+        $(restaurantsCard).append(rItemFive);
+        var rItemSix = $("#restaurant-item-six").text(results[5].name);
+        $(restaurantsCard).append(rItemSix);
+        var rItemSeven = $("#restaurant-item-seven").text(results[6].name);
+        $(restaurantsCard).append(rItemSeven);
+        var rItemEight = $("#restaurant-item-eight").text(results[7].name);
+        $(restaurantsCard).append(rItemEight);
+        var rItemNine = $("#restaurant-item-nine").text(results[8].name);
+        $(restaurantsCard).append(rItemNine);
+        var rItemTen = $("#restaurant-item-ten").text(results[9].name);
+        $(restaurantsCard).append(rItemTen);
       }
    }
   }

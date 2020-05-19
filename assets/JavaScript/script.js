@@ -86,14 +86,14 @@ function checkIfParamIsTrue(word) {
 function submitButton() {
   var urlParams = "?";
 
-  for (i = 0; i < urlArray.length; i++) {
-    var checkBox = document.querySelector("#" + urlArray[i]);
-    console.log(checkBox);
-    if (checkBox.checked == true) {
-      //adding string that got the id
-      urlParams += urlArray[i] + "=true&";
-    }
-  }
+  // for (i = 0; i < urlArray.length; i++) {
+  //   var checkBox = document.querySelector("#" + urlArray[i]);
+  //   console.log(checkBox);
+  //   if (checkBox.checked == true) {
+  //     //adding string that got the id
+  //     urlParams += urlArray[i] + "=true&";
+  //   }
+  // }
   console.log(urlParams);
   //combining route of file with params--building URL
   window.location = "./assets/results.html" + urlParams;
@@ -109,7 +109,7 @@ if (submitBtn) {
   });
 }
 
-//selects card container on results page and determines which radio button was selected and should be displayed.
+//selects card container on results page and determines which check box was selected and should be displayed.
 var cardContainer = document.getElementById("card-container");
 if (cardContainer) {
   //loops through url array
@@ -132,12 +132,24 @@ if (cardContainer) {
 var map;
 //function for map
 function initMap() {
+  // Disable default street stuff
+  var myStyles =[
+    {
+        featureType: "poi",
+        elementType: "labels",
+        stylers: [
+              { visibility: "off" }
+        ]
+    }
+];
+  
   //new map
   map = new google.maps.Map(document.getElementById("map"), {
     //map options
     center: { lat: 35.2271, lng: -80.8431 },
     zoom: 12,
     disableDefaultUI: true,
+    styles: myStyles
   });
   // Get selected neighborhoods from storage
   var neighborhood = localStorage.getItem("neighborhood");
@@ -166,68 +178,214 @@ function initMap() {
     // zoom and pan to marker
     map.panTo(neighborhoodCoords);
     map.setZoom(15);
-    getPlaces();
   }
 }
 
-// Get data from API
-function getPlaces() {
-  // Get neighborhood from local storage
-  var neighborhood = localStorage.getItem("neighborhood")
-  console.log(neighborhood)
-  
+var outdoorMarkers = []
+var popularMarkers = []
+var restaurantMarkers = []
+
+// Check if restaurant box is checked
+function restaurantCheck(){ 
+  var restaurantCheck = document.getElementById("restaurants").checked
+  if(restaurantCheck == true) {
+    getRestaurants()
+  } else if (restaurantCheck == false) {
+    clearOutdoorMarkers()
+  }
+}
+// Get restaurant data from API
+function getRestaurants() {
+  // Get selected neighborhoods from storage
+  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
     if (neighborhood === neighborhoods[i].title) {
       // Assign the coordinates to a variable
       var neighborhoodCoords = neighborhoods[i].coords;
-      console.log(neighborhoodCoords);
     }
   }
-
   // Get places service
   var service = new google.maps.places.PlacesService(map)
   // Query for nearby places
   var request = {
     location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
-    radius: "2000",
-    type: ["restaurant"]
+    radius: "1500",
+    type: ["restaurant"],
   }
-  console.log("anything")
   service.nearbySearch(request, handleResults)
+
+  function handleResults(results, status) {
+    if(status == google.maps.places.PlacesServiceStatus.OK) {
+        for(var i=1; i < 10; i++) {
+        console.log(results[i])
+        addMarker(results[i])
+      }
+   }
+  }
+  
+  function addMarker(results) {
+    var marker = new google.maps.Marker({
+      position: results.geometry.location,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      icon : "https://img.icons8.com/ios-glyphs/30/000000/restaurant.png"
+    })
+    restaurantMarkers.push(marker)
+  }
+  
 }
 
-function handleResults(results, status) {
-  if(status == google.maps.places.PlacesServiceStatus.OK) {
-    for(var i=0; i < results.length; i++) {
-      console.log(results[i].name)
-      // vars for restaraunts
-var restaurantsCard = $("card-section-four");
-var rItemOne = $("#restaurant-item-one").text(results[0].name);
-$(restaurantsCard).append(rItemOne);
-var rItemTwo = $("#restaurant-item-two").text(results[1].name);
-$(restaurantsCard).append(rItemTwo);
-var rItemThree = $("#restaurant-item-three").text(results[2].name);
-$(restaurantsCard).append(rItemThree);
-var rItemFour = $("#restaurant-item-four").text(results[3].name);
-$(restaurantsCard).append(rItemFour);
-var rItemFive = $("#restaurant-item-five").text(results[4].name);
-$(restaurantsCard).append(rItemFive);
-var rItemSix = $("#restaurant-item-six").text(results[5].name);
-$(restaurantsCard).append(rItemSix);
-var rItemSeven = $("#restaurant-item-seven").text(results[6].name);
-$(restaurantsCard).append(rItemSeven);
-var rItemEight = $("#restaurant-item-eight").text(results[7].name);
-$(restaurantsCard).append(rItemEight);
-var rItemNine = $("#restaurant-item-nine").text(results[8].name);
-$(restaurantsCard).append(rItemNine);
-var rItemTen = $("#restaurant-item-ten").text(results[9].name);
-$(restaurantsCard).append(rItemTen);
+// Check if popular is checked
+function popularCheck() {
+  var popularCheck = document.getElementById("popular").checked
+  if(popularCheck == true) {
+    getPopular()
+  }
+}
+
+// Get popular places data 
+function getPopular() {
+  // Get selected neighborhoods from storage
+  var neighborhood = localStorage.getItem("neighborhood"); 
+  // Iterate through object
+  for (var i = 0; i < neighborhoods.length; i++) {
+    // If an objects title is equal to selected neighborhood
+    if (neighborhood === neighborhoods[i].title) {
+      // Assign the coordinates to a variable
+      var neighborhoodCoords = neighborhoods[i].coords;
     }
   }
+  // Get places service
+  var service = new google.maps.places.PlacesService(map)
+  // Query for nearby places
+  var request = {
+    location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
+    radius: "1500",
+    type: ["aquarium", "art-gallery", "shopping-mall", "tourist-attraction", "movie-theater", "stadium", "night-club"],
+  }
+  service.nearbySearch(request, handleResults)
+
+  function handleResults(results, status) {
+    if(status == google.maps.places.PlacesServiceStatus.OK) {
+        for(var i=1; i < 10; i++) {
+        console.log(results[i])
+        addMarker(results[i])
+      }
+   }
+  }
+  
+  function addMarker(results) {
+    var marker = new google.maps.Marker({
+      position: results.geometry.location,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      icon: "https://img.icons8.com/color/48/000000/popular-topic.png"
+    })
+    popularMarkers.push(marker)
+  }
 }
 
+// Check if popular is checked
+function popularCheck() {
+  var popularCheck = document.getElementById("popular").checked
+  if(popularCheck == true) {
+    getPopular()
+  } else {
+    clearPopularMarkers()
+  }
+}
+
+//Check if restaurants is checked
+function restaurantCheck() {
+  var restaurantCheck = document.getElementById("restaurants").checked
+  if(restaurantCheck == true) {
+    getRestaurants()
+  } else {
+    clearRestaurantMarkers()
+  }
+}
+
+// Check if outdoors is checked
+function outdoorCheck() {
+  var outdoorCheck = document.getElementById("outdoor-areas").checked
+  if(outdoorCheck == true) {
+    getOutdoor()
+  } else {
+    clearOutdoorMarkers()
+  }
+}
+
+// Get outdoor areas data
+function getOutdoor() {
+  // Get selected neighborhoods from storage
+  var neighborhood = localStorage.getItem("neighborhood"); 
+  // Iterate through object
+  for (var i = 0; i < neighborhoods.length; i++) {
+    // If an objects title is equal to selected neighborhood
+    if (neighborhood === neighborhoods[i].title) {
+      // Assign the coordinates to a variable
+      var neighborhoodCoords = neighborhoods[i].coords;
+    }
+  }
+  // Get places service
+  var service = new google.maps.places.PlacesService(map)
+  // Query for nearby places
+  var request = {
+    location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
+    radius: "1500",
+    type: ["park"],
+  }
+  service.nearbySearch(request, handleResults)
+  
+  function handleResults(results, status) {
+    if(status == google.maps.places.PlacesServiceStatus.OK) {
+        for(var i=1; i < 10; i++) {
+        console.log(results[i])
+        addMarker(results[i])
+      }
+   }
+  }
+  
+  var icon = {
+    url: "https://img.icons8.com/pastel-glyph/64/000000/tree.png",
+    scaledSize: new google.maps.Size(50,50),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(0,0)
+  }  
+  
+  function addMarker(results) {
+      var marker = new google.maps.Marker({
+        position: results.geometry.location,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        icon: icon
+    })
+    outdoorMarkers.push(marker)
+    }
+}
+
+function setMapOnAll(arr, map) {
+  for (var i = 0; i < arr.length; i++) {
+    arr[i].setMap(map);
+  }
+}
+
+function clearOutdoorMarkers() {
+  setMapOnAll(outdoorMarkers, null)
+  outdoorMarkers = []
+}
+
+function clearPopularMarkers() {
+  setMapOnAll(popularMarkers, null)
+  popularMarkers = []
+}
+
+function clearRestaurantMarkers() {
+  setMapOnAll(restaurantMarkers, null)
+  restaurantMarkers = []
+}
 
 //==========Events/Ticketmaster API===============
 function ticketMasterFunc() {
@@ -270,5 +428,4 @@ function ticketMasterFunc() {
   });
 }
 ticketMasterFunc();
-
 

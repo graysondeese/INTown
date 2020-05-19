@@ -25,6 +25,30 @@
       <header class="cell shrink header text-center" id="results-header">
         <h3 id="intown"><a href='../index.html'>INTown</a></h3>
       </header>
+      <fieldset>
+        <legend>
+          <i class="fas fa-search"></i> Search Criteria:
+        </legend>
+        <input
+          type="checkbox"
+          value="outdoor-areas"
+          id="outdoor-areas"
+          onchange="outdoorCheck()"
+        /><label for="outdoor-areas">Outdoor Areas</label><br />
+        <input type="checkbox" value="events" id="events" /><label
+          for="events"
+          >Events</label
+        ><br />
+        <input
+          type="checkbox"
+          name="restaurants"
+          id="restaurants"
+          onclick="restaurantCheck()"
+          /><label for="restaurants">Restaurants & Bars</label><br />
+        <input type="checkbox" value="popular" id="popular" onclick="popularCheck()"/><label
+          for="popular"
+          >Popular Destinations</label>
+      </fieldset>
 
       <!-- for map  -->
       <div id="map"></div>

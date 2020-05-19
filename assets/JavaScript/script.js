@@ -225,6 +225,17 @@ function getRestaurants() {
       animation: google.maps.Animation.DROP,
       icon : "https://img.icons8.com/ios-glyphs/30/000000/restaurant.png"
     })
+
+    // add info window if name or vicinity is found
+    if(results.name || results.vicinity){
+      var restaurantInfoWindow = new google.maps.InfoWindow({
+        content: results.name + "<br>"+ results.vicinity
+      })
+
+      marker.addListener("click", function() {
+        restaurantInfoWindow.open(map, marker)
+      })
+    }
     restaurantMarkers.push(marker)
   }
   
@@ -295,6 +306,16 @@ function getPopular() {
       animation: google.maps.Animation.DROP,
       icon: "https://img.icons8.com/color/48/000000/popular-topic.png"
     })
+
+    if(results.name || results.vicinity){
+      var popularInfoWindow = new google.maps.InfoWindow({
+        content: results.name + "<br>"+ results.vicinity
+      })
+
+      marker.addListener("click", function() {
+        popularInfoWindow.open(map, marker)
+      })
+    }
     popularMarkers.push(marker)
   }
 }
@@ -393,6 +414,17 @@ function getOutdoor() {
         animation: google.maps.Animation.DROP,
         icon: icon
     })
+
+    // Add info window 
+    if(results.name || results.vicinity){
+      var outdoorsInfoWindow = new google.maps.InfoWindow({
+        content: results.name + "<br>"+ results.vicinity
+      })
+
+      marker.addListener("click", function() {
+        outdoorsInfoWindow.open(map, marker)
+      })
+    }
     outdoorMarkers.push(marker)
     }
 }

@@ -119,19 +119,18 @@ select {
   border-color: black;
   border-top: none;
   height: 100%;
-  padding: 30px;
+  padding: 3px;
+  overflow: auto;
 }
 
 legend {
   text-align: center;
   padding: 3%;
 }
-
 #map {
   height: 50vh;
   margin-left: 15%;
 }
-
 .cardContainer {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -203,6 +202,27 @@ ul {
   text-align: left;
   float: left;
 }
+}
+
+/* media query for the search critera */
+@media screen and (max-width: 1100px) {
+  .legend {
+    text-align: left;
+    padding: 0%;
+  }
+  .searchCritera {
+    float: none;
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+  }
+  #map {
+    margin-left: 0%;
+  }
+  .cb {
+    display: inline-block;
+    text-align: left;
+  }
 }
 
 /* media query for index.html */

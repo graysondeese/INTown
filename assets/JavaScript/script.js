@@ -68,14 +68,14 @@ function passValue() {
   localStorage.setItem("neighborhood", selectNeighborhood);
   return true;
 }
-
-var submitBtn = document.getElementById("submit-btn");
-if (submitBtn) {
-  submitBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-    submitButton();
-    passValue();
-  });
+function submitBtn() {
+  var submitBtn = document.getElementById("submit-btn");
+  if (submitBtn) {
+    submitBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      passValue();
+    });
+  }
 }
 
 $(".card").hide()
@@ -138,6 +138,7 @@ var outdoorMarkers = []
 var popularMarkers = []
 var restaurantMarkers = []
 
+//===== Function to display cars ======
 function displayEventsCard() {
   $(".events-card").show()
 }

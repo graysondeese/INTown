@@ -54,6 +54,15 @@ header a {
   margin: 0 auto;
 }
 
+#description-text {
+  padding: 10px;
+  margin-bottom: .5rem;
+}
+
+#description {
+  margin-bottom: 0;
+}
+
 /* styles "Start Exploring" text */
 #start-exploring {
   font-family: "Neucha", cursive;

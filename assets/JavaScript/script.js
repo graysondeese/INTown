@@ -244,7 +244,7 @@ function ticketMasterFunc() {
   }).then(function (response) {
     console.log(response);
    
-    var eventsCard = $("#card-section-one");
+    var eventsCard = $("#events-list");
     var itemOne = $("#event-item-one").text(response._embedded.events[0].name);
     var itemTwo = $("#event-item-two").text(response._embedded.events[1].name);
     var itemThree = $("#event-item-three").text(response._embedded.events[2].name);
@@ -270,4 +270,4 @@ function ticketMasterFunc() {
 }
 ticketMasterFunc();
 
-//for loop through events array events[i]
+

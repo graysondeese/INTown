@@ -68,6 +68,8 @@ function passValue() {
   localStorage.setItem("neighborhood", selectNeighborhood);
   return true;
 }
+
+// For submitBtn
 function submitBtn() {
   var submitBtn = document.getElementById("submit-btn");
   if (submitBtn) {
@@ -387,7 +389,7 @@ function getOutdoor() {
     scaledSize: new google.maps.Size(50,50),
     origin: new google.maps.Point(0,0),
     anchor: new google.maps.Point(0,0)
-  }  
+  }
   
   function addMarker(results) {
       var marker = new google.maps.Marker({

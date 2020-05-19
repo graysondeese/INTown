@@ -68,15 +68,15 @@ function passValue() {
   localStorage.setItem("neighborhood", selectNeighborhood);
   return true;
 }
+
+// For submitBtn
 function submitBtn() {
   var submitBtn = document.getElementById("submit-btn");
-  if (submitBtn) {
-    submitBtn.addEventListener("click", function (event) {
-      event.preventDefault();
-      passValue();
-    });
-  }
+  submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+  });
 }
+
 
 // Hide the cards by default
 $(".card").hide()
@@ -84,6 +84,7 @@ $(".card").hide()
 //================Map=====================
 // to hold the map
 var map;
+var neighborhood
 //function for map
 function initMap() {
   // Disable default street stuff
@@ -106,7 +107,7 @@ function initMap() {
     styles: myStyles
   });
   // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood");
+  neighborhood = localStorage.getItem("neighborhood");
   console.log(neighborhood);
   var neighborhoodCoords;
   // Iterate through the object
@@ -116,6 +117,7 @@ function initMap() {
       // Assign the coordinates to a variable
       neighborhoodCoords = neighborhoods[i].coords;
       console.log(neighborhoodCoords);
+      localStorage.clear()
     }
   }
 
@@ -127,6 +129,7 @@ function initMap() {
       position: neighborhoodCoords,
       map: map,
       animation: google.maps.Animation.DROP,
+      icon: "https://img.icons8.com/fluent/48/000000/order-delivered.png"
     });
 
     // zoom and pan to marker
@@ -167,8 +170,6 @@ function restaurantCheck(){
 }
 // Get restaurant data from API
 function getRestaurants() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -239,8 +240,6 @@ function popularCheck() {
 
 // Get popular places data 
 function getPopular() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -332,8 +331,6 @@ function outdoorCheck() {
 
 // Get outdoor areas data
 function getOutdoor() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -387,7 +384,7 @@ function getOutdoor() {
     scaledSize: new google.maps.Size(50,50),
     origin: new google.maps.Point(0,0),
     anchor: new google.maps.Point(0,0)
-  }  
+  }
   
   function addMarker(results) {
       var marker = new google.maps.Marker({

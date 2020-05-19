@@ -274,27 +274,9 @@ function getPopular() {
         for(var i=1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
-        var popularCard = $("card-section-three");
-        var rItemOne = $("#popular-item-one").text(results[0].name);
-        $(popularCard).append(rItemOne);
-        var rItemTwo = $("#popular-item-two").text(results[1].name);
-        $(popularCard).append(rItemTwo);
-        var rItemThree = $("#popular-item-three").text(results[2].name);
-        $(popularCard).append(rItemThree);
-        var rItemFour = $("#popular-item-four").text(results[3].name);
-        $(popularCard).append(rItemFour);
-        var rItemFive = $("#popular-item-five").text(results[4].name);
-        $(popularCard).append(rItemFive);
-        var rItemSix = $("#popular-item-six").text(results[5].name);
-        $(popularCard).append(rItemSix);
-        var rItemSeven = $("#popular-item-seven").text(results[6].name);
-        $(popularCard).append(rItemSeven);
-        var rItemEight = $("#popular-item-eight").text(results[7].name);
-        $(popularCard).append(rItemEight);
-        var rItemNine = $("#popular-item-nine").text(results[8].name);
-        $(popularCard).append(rItemNine);
-        var rItemTen = $("#popular-item-ten").text(results[9].name);
-        $(popularCard).append(rItemTen);
+        var outdoorListLength = $("ul#outdoorList > li").length
+        var rItem = "<li>" + results[i].name + (outdoorListLength + 1) + "</li>";
+        $("ul#outdoorList").append(rItem)
       }
    }
   }
@@ -365,7 +347,7 @@ function getOutdoor() {
   // Query for nearby places
   var request = {
     location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
-    radius: "1500",
+    radius: "1000",
     type: ["park"],
   }
   service.nearbySearch(request, handleResults)
@@ -375,27 +357,9 @@ function getOutdoor() {
         for(var i=1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
-        var outdoorCard = $("card-section-two");
-        var rItemOne = $("#outdoor-item-one").text(results[0].name);
-        $(outdoorCard).append(rItemOne);
-        var rItemTwo = $("#outdoor-item-two").text(results[1].name);
-        $(outdoorCard).append(rItemTwo);
-        var rItemThree = $("#outdoor-item-three").text(results[2].name);
-        $(outdoorCard).append(rItemThree);
-        var rItemFour = $("#outdoor-item-four").text(results[3].name);
-        $(outdoorCard).append(rItemFour);
-        var rItemFive = $("#outdoor-item-five").text(results[4].name);
-        $(outdoorCard).append(rItemFive);
-        var rItemSix = $("#outdoor-item-six").text(results[5].name);
-        $(outdoorCard).append(rItemSix);
-        var rItemSeven = $("#outdoor-item-seven").text(results[6].name);
-        $(outdoorCard).append(rItemSeven);
-        var rItemEight = $("#outdoor-item-eight").text(results[7].name);
-        $(outdoorCard).append(rItemEight);
-        var rItemNine = $("#outdoor-item-nine").text(results[8].name);
-        $(outdoorCard).append(rItemNine);
-        var rItemTen = $("#outdoor-item-ten").text(results[9].name);
-        $(outdoorCard).append(rItemTen);
+        var outdoorListLength = $("ul#outdoorList > li").length
+        var rItem = "<li>" + results[i].name + (outdoorListLength + 1) + "</li>";
+        $("ul#outdoorList").append(rItem)
       }
    }
   }

@@ -55,6 +55,10 @@ header a {
   margin: 0 auto;
 }
 
+i #fas {
+  padding: 5px;
+}
+
 /* styles text inside Description section */
 #description-text {
   padding: 10px;
@@ -107,6 +111,7 @@ select {
 #results-header {
   background-color: black;
 }
+
 .searchCritera {
   width: 15%;
   float: left;
@@ -116,6 +121,7 @@ select {
   height: 100%;
   padding: 30px;
 }
+
 legend {
   text-align: center;
   padding: 3%;
@@ -141,9 +147,6 @@ legend {
 }
 .cardImg {
   height: 2rem;
-}
-i {
-  padding: 5px;
 }
 
 .card {
@@ -267,7 +270,7 @@ header {
 }
   
   /* styles "Select a Neighborhood:" text */
-label {
+#select-neighborhood {
   font-size: 1rem;
   margin-bottom: 1rem;
 }

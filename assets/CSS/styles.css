@@ -107,9 +107,28 @@ select {
 #results-header {
   background-color: black;
 }
+.searchCritera {
+  width: 15%;
+  float: left;
+  border-style: solid;
+  border-color: black;
+  border-top: none;
+  height: 100%;
+  padding: 30px;
+}
+legend {
+  text-align: center;
+  padding: 3%;
+}
+label {
+  padding: 3%;
+}
+
+
 
 #map {
   height: 50vh;
+  margin-left: 15%;
 }
 
 .cardContainer {
@@ -127,9 +146,11 @@ select {
 .card-heading {
   font-family: "Neucha", cursive;
 }
-
+.cardImg {
+  height: 2rem;
+}
 i {
-  padding: 5px;
+  height: 2rem;
 }
 
 .card {

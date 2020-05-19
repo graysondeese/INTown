@@ -68,15 +68,15 @@ function passValue() {
   localStorage.setItem("neighborhood", selectNeighborhood);
   return true;
 }
+
+// For submitBtn
 function submitBtn() {
   var submitBtn = document.getElementById("submit-btn");
-  if (submitBtn) {
-    submitBtn.addEventListener("click", function (event) {
-      event.preventDefault();
-      passValue();
-    });
-  }
+  submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+  });
 }
+
 
 // Hide the cards by default
 $(".card").hide()
@@ -116,6 +116,7 @@ function initMap() {
       // Assign the coordinates to a variable
       neighborhoodCoords = neighborhoods[i].coords;
       console.log(neighborhoodCoords);
+      localStorage.clear()
     }
   }
 
@@ -387,7 +388,7 @@ function getOutdoor() {
     scaledSize: new google.maps.Size(50,50),
     origin: new google.maps.Point(0,0),
     anchor: new google.maps.Point(0,0)
-  }  
+  }
   
   function addMarker(results) {
       var marker = new google.maps.Marker({

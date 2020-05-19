@@ -439,16 +439,16 @@ function ticketMasterFunc() {
     console.log(response);
    
     
-    var itemOne = $("<a>").attr("href", response._embedded.events[0].url).text(response._embedded.events[0].name);
-    var itemTwo = $("<a>").attr("href", response._embedded.events[1].url).text(response._embedded.events[1].name);
-    var itemThree = $("<a>").attr("href", response._embedded.events[2].url).text(response._embedded.events[2].name);
-    var itemFour = $("<a>").attr("href", response._embedded.events[3].url).text(response._embedded.events[3].name);
-    var itemFive = $("<a>").attr("href", response._embedded.events[4].url).text(response._embedded.events[4].name);
-    var itemSix = $("<a>").attr("href", response._embedded.events[5].url).text(response._embedded.events[5].name);
-    var itemSeven = $("<a>").attr("href", response._embedded.events[6].url).text(response._embedded.events[6].name);
-    var itemEight = $("<a>").attr("href", response._embedded.events[7].url).text(response._embedded.events[7].name);
-    var itemNine = $("<a>").attr("href", response._embedded.events[8].url).text(response._embedded.events[8].name);
-    var itemTen = $("<a>").attr("href", response._embedded.events[9].url).text(response._embedded.events[9].name);
+    var itemOne = $("<a>").attr("href", response._embedded.events[0].url).attr("target", "_blank").text(response._embedded.events[0].name);
+    var itemTwo = $("<a>").attr("href", response._embedded.events[1].url).attr("target", "_blank").text(response._embedded.events[1].name);
+    var itemThree = $("<a>").attr("href", response._embedded.events[2].url).attr("target", "_blank").text(response._embedded.events[2].name);
+    var itemFour = $("<a>").attr("href", response._embedded.events[3].url).attr("target", "_blank").text(response._embedded.events[3].name);
+    var itemFive = $("<a>").attr("href", response._embedded.events[4].url).attr("target", "_blank").text(response._embedded.events[4].name);
+    var itemSix = $("<a>").attr("href", response._embedded.events[5].url).attr("target", "_blank").text(response._embedded.events[5].name);
+    var itemSeven = $("<a>").attr("href", response._embedded.events[6].url).attr("target", "_blank").text(response._embedded.events[6].name);
+    var itemEight = $("<a>").attr("href", response._embedded.events[7].url).attr("target", "_blank").text(response._embedded.events[7].name);
+    var itemNine = $("<a>").attr("href", response._embedded.events[8].url).attr("target", "_blank").text(response._embedded.events[8].name);
+    var itemTen = $("<a>").attr("href", response._embedded.events[9].url).attr("target", "_blank").text(response._embedded.events[9].name);
 
 
     $("#event-item-one").append(itemOne);

@@ -244,7 +244,7 @@ function ticketMasterFunc() {
   }).then(function (response) {
     console.log(response);
    
-    var eventsCard = $("#events-list");
+    
     var itemOne = $("<a>").attr("href", response._embedded.events[0].url).text(response._embedded.events[0].name);
     var itemTwo = $("<a>").attr("href", response._embedded.events[1].url).text(response._embedded.events[1].name);
     var itemThree = $("<a>").attr("href", response._embedded.events[2].url).text(response._embedded.events[2].name);

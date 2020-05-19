@@ -78,6 +78,7 @@ function submitBtn() {
   }
 }
 
+// Hide the cards by default
 $(".card").hide()
 
 //================Map=====================
@@ -271,7 +272,7 @@ function getPopular() {
         var rItemThree = $("#popular-item-three").text(results[2].name);
         $(popularCard).append(rItemThree);
         var rItemFour = $("#popular-item-four").text(results[3].name);
-        $(restaurantsCard).append(rItemFour);
+        $(popularCard).append(rItemFour);
         var rItemFive = $("#popular-item-five").text(results[4].name);
         $(popularCard).append(rItemFive);
         var rItemSix = $("#popular-item-six").text(results[5].name);

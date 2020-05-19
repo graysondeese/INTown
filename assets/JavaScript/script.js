@@ -81,21 +81,21 @@ function checkIfParamIsTrue(word) {
   return keyword === "true";
 }
 
-//=============Submit button========================
+//=============Submit button and checkboxes========================
 
 function submitButton() {
   var urlParams = "?";
 
-  for (i = 0; i < urlArray.length; i++) {
-    var checkBox = document.querySelector("#" + urlArray[i]);
-    console.log(checkBox)
-    if (checkBox.checked == true) {
-      //adding string that got the id
-      urlParams += urlArray[i] + "=true&";
-    }
-  }
+  // for (i = 0; i < urlArray.length; i++) {
+  //   var checkBox = document.querySelector("#" + urlArray[i]);
+  //   console.log(checkBox);
+  //   if (checkBox.checked == true) {
+  //     //adding string that got the id
+  //     urlParams += urlArray[i] + "=true&";
+  //   }
+  // }
   console.log(urlParams);
-  //combining route of file with params--building URL 
+  //combining route of file with params--building URL
   window.location = "./assets/results.html" + urlParams;
   console.log(location.href);
 }
@@ -105,7 +105,7 @@ if (submitBtn) {
   submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
     submitButton();
-    passValue()
+    passValue();
   });
 }
 
@@ -230,6 +230,7 @@ function getRestaurants() {
       position: results.geometry.location,
       map: map,
       animation: google.maps.Animation.DROP,
+      icon : "https://img.icons8.com/ios-glyphs/30/000000/restaurant.png"
     })
     restaurantMarkers.push(marker)
   }
@@ -280,6 +281,7 @@ function getPopular() {
       position: results.geometry.location,
       map: map,
       animation: google.maps.Animation.DROP,
+      icon: "https://img.icons8.com/color/48/000000/popular-topic.png"
     })
     popularMarkers.push(marker)
   }
@@ -290,7 +292,9 @@ function outdoorCheck() {
   var outdoorCheck = document.getElementById("outdoor-areas").checked
   if(outdoorCheck == true) {
     getOutdoor()
-  } 
+  } else {
+    clearOutdoorMarkers()
+  }
 }
 
 // Get outdoor areas data
@@ -324,38 +328,76 @@ function getOutdoor() {
    }
   }
   
+  var icon = {
+    url: "https://img.icons8.com/pastel-glyph/64/000000/tree.png",
+    scaledSize: new google.maps.Size(50,50),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(0,0)
+  }  
+  
   function addMarker(results) {
-    var marker = new google.maps.Marker({
-      position: results.geometry.location,
-      map: map,
-      animation: google.maps.Animation.DROP,
+      var marker = new google.maps.Marker({
+        position: results.geometry.location,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        icon: icon
     })
     outdoorMarkers.push(marker)
+    }
+}
+
+function setMapOnAll(arr, map) {
+  for (var i = 0; i < arr.length; i++) {
+    arr[i].setMap(map);
   }
 }
 
-// function clearOutdoorMarkers(){
-//   setMapOnAll(null)
-//   clearOutdoorMarkers = []
-// }
+function clearOutdoorMarkers(){
+  console.log("clearing")
+  setMapOnAll(outdoorMarkers, null)
+  outdoorMarkers = []
+}
 
 //==========Events/Ticketmaster API===============
-var ticketMasterKey = "inHlvBLTGUTbsQyVFJkNPakSwfAWIMCa";
-var ticketMasterURL = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketMasterKey;
+function ticketMasterFunc() {
+  console.log("hello");
 
+  var ticketMasterKey = "inHlvBLTGUTbsQyVFJkNPakSwfAWIMCa";
+  var ticketMasterURL =
+    "https://app.ticketmaster.com/discovery/v2/events.json?city=charlotte&apikey=" +
+    ticketMasterKey;
 
-$.ajax({
-  url: ticketMasterURL,
-  method: "GET"
-}).then(function(response) {
-  console.log(response);
+  $.ajax({
+    url: ticketMasterURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+   
+    var eventsCard = $("#card-section-one");
+    var itemOne = $("#event-item-one").text(response._embedded.events[0].name);
+    var itemTwo = $("#event-item-two").text(response._embedded.events[1].name);
+    var itemThree = $("#event-item-three").text(response._embedded.events[2].name);
+    var itemFour = $("#event-item-four").text(response._embedded.events[3].name);
+    var itemFive = $("#event-item-five").text(response._embedded.events[4].name);
+    var itemSix = $("#event-item-six").text(response._embedded.events[5].name);
+    var itemSeven = $("#event-item-seven").text(response._embedded.events[6].name);
+    var itemEight = $("#event-item-eight").text(response._embedded.events[7].name);
+    var itemNine = $("#event-item-nine").text(response._embedded.events[8].name);
+    var itemTen = $("#event-item-ten").text(response._embedded.events[9].name);
 
-var eventsCard = $("#card-section-one");
-var itemOne = $("#event-item-one").text(response._embedded.events[0]);
-var itemTwo = $("#event-item-two").text(response._embedded.events[1]);
-var itemThree = $("#event-item-three").text(response._embedded.events[2]);
-var itemFour = $("#event-item-four").text(response._embedded.events[3]);
+    $(eventsCard).append(itemOne);
+    $(eventsCard).append(itemTwo);
+    $(eventsCard).append(itemThree);
+    $(eventsCard).append(itemFour); 
+    $(eventsCard).append(itemFive); 
+    $(eventsCard).append(itemSix); 
+    $(eventsCard).append(itemSeven); 
+    $(eventsCard).append(itemEight); 
+    $(eventsCard).append(itemNine); 
+    $(eventsCard).append(itemTen); 
+  });
+}
+ticketMasterFunc();
 
-//eventsCard.text(JSON.stringify(itemOne, itemTwo, itemThree, itemFour));
-
-});
+//for loop through events array events[i]
+ 

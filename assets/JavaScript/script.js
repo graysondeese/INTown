@@ -88,7 +88,7 @@ function submitButton() {
 
   for (i = 0; i < urlArray.length; i++) {
     var checkBox = document.querySelector("#" + urlArray[i]);
-    console.log(checkBox);
+    //console.log(checkBox);
     if (checkBox.checked == true) {
       //adding string that got the id
       urlParams += urlArray[i] + "=true&";
@@ -97,7 +97,7 @@ function submitButton() {
   console.log(urlParams);
   //combining route of file with params--building URL
   window.location = "./assets/results.html" + urlParams;
-  console.log(location.href);
+  //console.log(location.href);
 }
 
 var submitBtn = document.getElementById("submit-btn");
@@ -209,8 +209,6 @@ function handleResults(results, status) {
 
 //==========Events/Ticketmaster API===============
 function ticketMasterFunc() {
-  console.log("hello");
-
   var ticketMasterKey = "inHlvBLTGUTbsQyVFJkNPakSwfAWIMCa";
   var ticketMasterURL =
     "https://app.ticketmaster.com/discovery/v2/events.json?city=charlotte&apikey=" +
@@ -221,9 +219,8 @@ function ticketMasterFunc() {
     method: "GET",
   }).then(function (response) {
     console.log(response);
-   
-    var eventsCard = $("#card-section-one");
-    var itemOne = $("#event-item-one").text(response._embedded.events[0].name);
+
+    var itemOne = $("#event-item-one").text(response._embedded.events[0].name)
     var itemTwo = $("#event-item-two").text(response._embedded.events[1].name);
     var itemThree = $("#event-item-three").text(response._embedded.events[2].name);
     var itemFour = $("#event-item-four").text(response._embedded.events[3].name);
@@ -233,6 +230,8 @@ function ticketMasterFunc() {
     var itemEight = $("#event-item-eight").text(response._embedded.events[7].name);
     var itemNine = $("#event-item-nine").text(response._embedded.events[8].name);
     var itemTen = $("#event-item-ten").text(response._embedded.events[9].name);
+
+    
 
     $(eventsCard).append(itemOne);
     $(eventsCard).append(itemTwo);
@@ -248,4 +247,4 @@ function ticketMasterFunc() {
 }
 ticketMasterFunc();
 
-//for loop through events array events[i]
+

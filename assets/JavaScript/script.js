@@ -5,6 +5,10 @@ var neighborhoods = [
     coords: { lat: 35.161352, lng: -80.838031 },
   },
   {
+    title: "Belmont",
+    coords: {lat: 35.228643, lng: -80.822258 },
+    },
+  {
     title: "South End",
     coords: { lat: 35.2125569, lng: -80.8588 },
   },
@@ -43,10 +47,6 @@ var neighborhoods = [
   {
     title: "Elizabeth",
     coords: { lat: 35.2142, lng: -80.8184 },
-  },
-  {
-    title: "Chantilly",
-    coords: { lat: 35.2115244, lng: -80.8087 },
   },
   {
     title: "First Ward",

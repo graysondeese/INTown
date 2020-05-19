@@ -264,7 +264,7 @@ header {
 }
   
   /* styles "Select a Neighborhood:" text */
-label {
+#select-neighborhood {
   font-size: 1rem;
   margin-bottom: 1rem;
 }

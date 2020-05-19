@@ -72,13 +72,11 @@ function passValue() {
 // For submitBtn
 function submitBtn() {
   var submitBtn = document.getElementById("submit-btn");
-  if (submitBtn) {
-    submitBtn.addEventListener("click", function (event) {
-      event.preventDefault();
-      passValue();
-    });
-  }
+  submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+  });
 }
+
 
 // Hide the cards by default
 $(".card").hide()
@@ -118,6 +116,7 @@ function initMap() {
       // Assign the coordinates to a variable
       neighborhoodCoords = neighborhoods[i].coords;
       console.log(neighborhoodCoords);
+      localStorage.clear()
     }
   }
 

@@ -120,17 +120,10 @@ legend {
   text-align: center;
   padding: 3%;
 }
-label {
-  padding: 3%;
-}
-
-
-
 #map {
   height: 50vh;
   margin-left: 15%;
 }
-
 .cardContainer {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -150,7 +143,7 @@ label {
   height: 2rem;
 }
 i {
-  height: 2rem;
+  padding: 5px;
 }
 
 .card {
@@ -204,6 +197,14 @@ ul {
 .card-divider {
   text-align: left;
   float: left;
+}
+.legend {
+  text-align: left;
+  padding: 0%;
+}
+.searchCritera {
+  font-size: 1px;
+  background-color: red;
 }
 }
 

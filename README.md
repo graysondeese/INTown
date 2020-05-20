@@ -15,7 +15,7 @@ The the listed items in each card is data pulled from either the Google maps API
 * [Josh Rivera](https://github.com/JRivera-31)
 
 
-# URLs:
+# URLs
 
 * Deployed Application: https://graysondeese.github.io/INTown/
 * Github Repository: https://github.com/graysondeese/INTown

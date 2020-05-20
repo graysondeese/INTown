@@ -9,16 +9,16 @@ The the listed items in each card is data pulled from either the Google maps API
 
 # Contributors
 
-[Helen Darden](https://github.com/hdarden)<br>
-[Grayson Deese](https://github.com/graysondeese)<br>
-[Emily Renegar](https://github.com/egrenegar)<br>
-[Josh Rivera](https://github.com/JRivera-31)<br>
+* [Helen Darden](https://github.com/hdarden)
+* [Grayson Deese](https://github.com/graysondeese)
+* [Emily Renegar](https://github.com/egrenegar)
+* [Josh Rivera](https://github.com/JRivera-31)
 
 
 # Links:
 
-Deployed Application: https://graysondeese.github.io/INTown/
-Github Repository: https://github.com/graysondeese/INTown
+* Deployed Application: https://graysondeese.github.io/INTown/
+* Github Repository: https://github.com/graysondeese/INTown
 
 # Screenshots
 

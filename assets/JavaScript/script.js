@@ -165,6 +165,7 @@ function restaurantCheck(){
   if(restaurantCheck == true) {
     getRestaurants()
   } else {
+    $(".restaurant-card").hide()
     clearRestaurantMarkers()
   }
 }
@@ -496,14 +497,17 @@ var descriptions = [
   {
     neighborhood: 'Myers Park',
     description: 'Myers Park is an affluent area with high-end boutiques, gourmet grocery stores and chic restaurants, especially on Selwyn Avenue. An international art collection is on display at Mint Museum Randolph, and the Discovery Place Nature museum has live animal exhibits. The Booty Loop cycling trail runs through the heart of the neighborhood, and the Wing Haven Garden and Bird Sanctuary features rose and herb gardens.'
-  }
+  },
 ];
 
 $('#neighborhoods').on('change', function (event) {
   for (var i = 0; i < descriptions.length; i++) {
     var value = event.target.value;
+    console.log(value)
     if (value === descriptions[i].neighborhood) {
       $('#description-text').text(descriptions[i].description);
+    } else if (value === "default") {
+      $('#description-text').text("Please select a neighborhood!");
     }
   }
 });

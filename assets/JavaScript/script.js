@@ -70,10 +70,10 @@ function passValue() {
 }
 
 // For submitBtn
-function submitBtn() {
+function submitBtn(value) {
   var submitBtn = document.getElementById("submit-btn");
   submitBtn.addEventListener("click", function (event) {
-    event.preventDefault();
+    event.preventDefault()
   });
 }
 
@@ -165,6 +165,7 @@ function restaurantCheck() {
   if (restaurantCheck == true) {
     getRestaurants()
   } else {
+    $(".restaurant-card").hide()
     clearRestaurantMarkers()
   }
 }
@@ -493,7 +494,7 @@ var descriptions = [
   {
     neighborhood: 'Myers Park',
     description: 'Myers Park is an affluent area with high-end boutiques, gourmet grocery stores and chic restaurants, especially on Selwyn Avenue. An international art collection is on display at Mint Museum Randolph, and the Discovery Place Nature museum has live animal exhibits. The Booty Loop cycling trail runs through the heart of the neighborhood, and the Wing Haven Garden and Bird Sanctuary features rose and herb gardens.'
-  }
+  },
 ];
 // Search box description function //
 $('#neighborhoods').on('change', function (event) {
@@ -509,7 +510,7 @@ $('#neighborhoods').on('change', function (event) {
       descHeading.append(' Description');
       ($('<div>').attr('id', 'description-text').text(descriptions[i].description)).appendTo($('.description-box'));
     } else if (value === 'default') {
-      $('.description-box').text('');
+      $('.description-box').text('Please select neighborhood!');
     }
   }
 });

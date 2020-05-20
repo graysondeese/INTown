@@ -134,7 +134,7 @@ legend {
   width: 100%;
   display: flex;
   flex-direction: row;
-  /* bottom: 0; */
+  bottom: 0;
   height: 45%;
   color: black;
 }

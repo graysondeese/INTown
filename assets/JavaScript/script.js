@@ -6,8 +6,8 @@ var neighborhoods = [
   },
   {
     title: "Belmont",
-    coords: {lat: 35.228643, lng: -80.822258 },
-    },
+    coords: { lat: 35.228643, lng: -80.822258 },
+  },
   {
     title: "South End",
     coords: { lat: 35.2125569, lng: -80.8588 },
@@ -68,34 +68,36 @@ function passValue() {
   localStorage.setItem("neighborhood", selectNeighborhood);
   return true;
 }
+
+// For submitBtn
 function submitBtn() {
   var submitBtn = document.getElementById("submit-btn");
-  if (submitBtn) {
-    submitBtn.addEventListener("click", function (event) {
-      event.preventDefault();
-      passValue();
-    });
-  }
+  submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+  });
 }
 
+
+// Hide the cards by default
 $(".card").hide()
 
 //================Map=====================
 // to hold the map
 var map;
+var neighborhood
 //function for map
 function initMap() {
   // Disable default street stuff
-  var myStyles =[
+  var myStyles = [
     {
-        featureType: "poi",
-        elementType: "labels",
-        stylers: [
-              { visibility: "off" }
-        ]
+      featureType: "poi",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
     }
-];
-  
+  ];
+
   //new map
   map = new google.maps.Map(document.getElementById("map"), {
     //map options
@@ -105,7 +107,7 @@ function initMap() {
     styles: myStyles
   });
   // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood");
+  neighborhood = localStorage.getItem("neighborhood");
   console.log(neighborhood);
   var neighborhoodCoords;
   // Iterate through the object
@@ -115,6 +117,7 @@ function initMap() {
       // Assign the coordinates to a variable
       neighborhoodCoords = neighborhoods[i].coords;
       console.log(neighborhoodCoords);
+      localStorage.clear()
     }
   }
 
@@ -126,6 +129,7 @@ function initMap() {
       position: neighborhoodCoords,
       map: map,
       animation: google.maps.Animation.DROP,
+      icon: "https://img.icons8.com/fluent/48/000000/order-delivered.png"
     });
 
     // zoom and pan to marker
@@ -151,14 +155,14 @@ function displayPopularCard() {
   $(".popular-card").show()
 }
 
-function displayRestaurantCard(){
+function displayRestaurantCard() {
   $(".restaurant-card").show()
 }
 
 // Check if restaurant box is checked
-function restaurantCheck(){ 
+function restaurantCheck() {
   var restaurantCheck = document.getElementById("restaurants").checked
-  if(restaurantCheck == true) {
+  if (restaurantCheck == true) {
     getRestaurants()
   } else {
     clearRestaurantMarkers()
@@ -166,8 +170,6 @@ function restaurantCheck(){
 }
 // Get restaurant data from API
 function getRestaurants() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -187,59 +189,49 @@ function getRestaurants() {
   service.nearbySearch(request, handleResults)
 
   function handleResults(results, status) {
-    if(status == google.maps.places.PlacesServiceStatus.OK) {
-        for(var i=1; i < 10; i++) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
-        var restaurantsCard = $("card-section-four");
-        var rItemOne = $("#restaurant-item-one").text(results[0].name);
-        $(restaurantsCard).append(rItemOne);
-        var rItemTwo = $("#restaurant-item-two").text(results[1].name);
-        $(restaurantsCard).append(rItemTwo);
-        var rItemThree = $("#restaurant-item-three").text(results[2].name);
-        $(restaurantsCard).append(rItemThree);
-        var rItemFour = $("#restaurant-item-four").text(results[3].name);
-        $(restaurantsCard).append(rItemFour);
-        var rItemFive = $("#restaurant-item-five").text(results[4].name);
-        $(restaurantsCard).append(rItemFive);
-        var rItemSix = $("#restaurant-item-six").text(results[5].name);
-        $(restaurantsCard).append(rItemSix);
-        var rItemSeven = $("#restaurant-item-seven").text(results[6].name);
-        $(restaurantsCard).append(rItemSeven);
-        var rItemEight = $("#restaurant-item-eight").text(results[7].name);
-        $(restaurantsCard).append(rItemEight);
-        var rItemNine = $("#restaurant-item-nine").text(results[8].name);
-        $(restaurantsCard).append(rItemNine);
-        var rItemTen = $("#restaurant-item-ten").text(results[9].name);
-        $(restaurantsCard).append(rItemTen);
+        var rItem = "<li>" + results[i].name + "</li>";
+        $("ul#restaurantList").append(rItem)
       }
-   }
+    }
   }
-  
+
   function addMarker(results) {
     var marker = new google.maps.Marker({
       position: results.geometry.location,
       map: map,
       animation: google.maps.Animation.DROP,
-      icon : "https://img.icons8.com/ios-glyphs/30/000000/restaurant.png"
+      icon: "https://img.icons8.com/ios-glyphs/30/000000/restaurant.png"
     })
+
+    // add info window if name or vicinity is found
+    if (results.name || results.vicinity) {
+      var restaurantInfoWindow = new google.maps.InfoWindow({
+        content: results.name + "<br>" + results.vicinity
+      })
+
+      marker.addListener("click", function () {
+        restaurantInfoWindow.open(map, marker)
+      })
+    }
     restaurantMarkers.push(marker)
   }
-  
+
 }
 
 // Check if popular is checked
 function popularCheck() {
   var popularCheck = document.getElementById("popular").checked
-  if(popularCheck == true) {
+  if (popularCheck == true) {
     getPopular()
   }
 }
 
 // Get popular places data 
 function getPopular() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -259,14 +251,16 @@ function getPopular() {
   service.nearbySearch(request, handleResults)
 
   function handleResults(results, status) {
-    if(status == google.maps.places.PlacesServiceStatus.OK) {
-        for(var i=1; i < 10; i++) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
+        var rItem = "<li>" + results[i].name + "</li>";
+        $("ul#popularList").append(rItem)
       }
-   }
+    }
   }
-  
+
   function addMarker(results) {
     var marker = new google.maps.Marker({
       position: results.geometry.location,
@@ -274,6 +268,16 @@ function getPopular() {
       animation: google.maps.Animation.DROP,
       icon: "https://img.icons8.com/color/48/000000/popular-topic.png"
     })
+
+    if (results.name || results.vicinity) {
+      var popularInfoWindow = new google.maps.InfoWindow({
+        content: results.name + "<br>" + results.vicinity
+      })
+
+      marker.addListener("click", function () {
+        popularInfoWindow.open(map, marker)
+      })
+    }
     popularMarkers.push(marker)
   }
 }
@@ -281,7 +285,7 @@ function getPopular() {
 // Check if popular is checked
 function popularCheck() {
   var popularCheck = document.getElementById("popular").checked
-  if(popularCheck == true) {
+  if (popularCheck == true) {
     getPopular()
   } else {
     clearPopularMarkers()
@@ -291,7 +295,7 @@ function popularCheck() {
 //Check if restaurants is checked
 function restaurantCheck() {
   var restaurantCheck = document.getElementById("restaurants").checked
-  if(restaurantCheck == true) {
+  if (restaurantCheck == true) {
     getRestaurants()
   } else {
     clearRestaurantMarkers()
@@ -301,7 +305,7 @@ function restaurantCheck() {
 // Check if outdoors is checked
 function outdoorCheck() {
   var outdoorCheck = document.getElementById("outdoor-areas").checked
-  if(outdoorCheck == true) {
+  if (outdoorCheck == true) {
     getOutdoor()
   } else {
     clearOutdoorMarkers()
@@ -310,8 +314,6 @@ function outdoorCheck() {
 
 // Get outdoor areas data
 function getOutdoor() {
-  // Get selected neighborhoods from storage
-  var neighborhood = localStorage.getItem("neighborhood"); 
   // Iterate through object
   for (var i = 0; i < neighborhoods.length; i++) {
     // If an objects title is equal to selected neighborhood
@@ -325,36 +327,49 @@ function getOutdoor() {
   // Query for nearby places
   var request = {
     location: new google.maps.LatLng(neighborhoodCoords.lat, neighborhoodCoords.lng),
-    radius: "1500",
+    radius: "1000",
     type: ["park"],
   }
   service.nearbySearch(request, handleResults)
-  
+
   function handleResults(results, status) {
-    if(status == google.maps.places.PlacesServiceStatus.OK) {
-        for(var i=1; i < 10; i++) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
+        var rItem = "<li>" + results[i].name + "</li>";
+        $("ul#outdoorList").append(rItem)
       }
-   }
+    }
   }
-  
+
   var icon = {
     url: "https://img.icons8.com/pastel-glyph/64/000000/tree.png",
-    scaledSize: new google.maps.Size(50,50),
-    origin: new google.maps.Point(0,0),
-    anchor: new google.maps.Point(0,0)
-  }  
-  
+    scaledSize: new google.maps.Size(50, 50),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(0, 0)
+  }
+
   function addMarker(results) {
-      var marker = new google.maps.Marker({
-        position: results.geometry.location,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        icon: icon
+    var marker = new google.maps.Marker({
+      position: results.geometry.location,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      icon: icon
     })
-    outdoorMarkers.push(marker)
+
+    // Add info window 
+    if (results.name || results.vicinity) {
+      var outdoorsInfoWindow = new google.maps.InfoWindow({
+        content: results.name + "<br>" + results.vicinity
+      })
+
+      marker.addListener("click", function () {
+        outdoorsInfoWindow.open(map, marker)
+      })
     }
+    outdoorMarkers.push(marker)
+  }
 }
 
 function setMapOnAll(arr, map) {
@@ -392,35 +407,32 @@ function ticketMasterFunc() {
     method: "GET",
   }).then(function (response) {
     console.log(response);
-   
-    
-    var itemOne = $("<a>").attr("href", response._embedded.events[0].url).text(response._embedded.events[0].name);
-    var itemTwo = $("<a>").attr("href", response._embedded.events[1].url).text(response._embedded.events[1].name);
-    var itemThree = $("<a>").attr("href", response._embedded.events[2].url).text(response._embedded.events[2].name);
-    var itemFour = $("<a>").attr("href", response._embedded.events[3].url).text(response._embedded.events[3].name);
-    var itemFive = $("<a>").attr("href", response._embedded.events[4].url).text(response._embedded.events[4].name);
-    var itemSix = $("<a>").attr("href", response._embedded.events[5].url).text(response._embedded.events[5].name);
-    var itemSeven = $("<a>").attr("href", response._embedded.events[6].url).text(response._embedded.events[6].name);
-    var itemEight = $("<a>").attr("href", response._embedded.events[7].url).text(response._embedded.events[7].name);
-    var itemNine = $("<a>").attr("href", response._embedded.events[8].url).text(response._embedded.events[8].name);
-    var itemTen = $("<a>").attr("href", response._embedded.events[9].url).text(response._embedded.events[9].name);
 
+    var itemOne = $("<a>").attr("href", response._embedded.events[0].url).attr("target", "_blank").text(response._embedded.events[0].name);
+    var itemTwo = $("<a>").attr("href", response._embedded.events[1].url).attr("target", "_blank").text(response._embedded.events[1].name);
+    var itemThree = $("<a>").attr("href", response._embedded.events[2].url).attr("target", "_blank").text(response._embedded.events[2].name);
+    var itemFour = $("<a>").attr("href", response._embedded.events[3].url).attr("target", "_blank").text(response._embedded.events[3].name);
+    var itemFive = $("<a>").attr("href", response._embedded.events[4].url).attr("target", "_blank").text(response._embedded.events[4].name);
+    var itemSix = $("<a>").attr("href", response._embedded.events[5].url).attr("target", "_blank").text(response._embedded.events[5].name);
+    var itemSeven = $("<a>").attr("href", response._embedded.events[6].url).attr("target", "_blank").text(response._embedded.events[6].name);
+    var itemEight = $("<a>").attr("href", response._embedded.events[7].url).attr("target", "_blank").text(response._embedded.events[7].name);
+    var itemNine = $("<a>").attr("href", response._embedded.events[8].url).attr("target", "_blank").text(response._embedded.events[8].name);
+    var itemTen = $("<a>").attr("href", response._embedded.events[9].url).attr("target", "_blank").text(response._embedded.events[9].name);
 
     $("#event-item-one").append(itemOne);
     $("#event-item-two").append(itemTwo);
     $("#event-item-three").append(itemThree);
-    $("#event-item-four").append(itemFour); 
-    $("#event-item-five").append(itemFive); 
-    $("#event-item-six").append(itemSix); 
-    $("#event-item-seven").append(itemSeven); 
-    $("#event-item-eight").append(itemEight); 
-    $("#event-item-nine").append(itemNine); 
-    $("#event-item-ten").append(itemTen); 
+    $("#event-item-four").append(itemFour);
+    $("#event-item-five").append(itemFive);
+    $("#event-item-six").append(itemSix);
+    $("#event-item-seven").append(itemSeven);
+    $("#event-item-eight").append(itemEight);
+    $("#event-item-nine").append(itemNine);
+    $("#event-item-ten").append(itemTen);
   });
 }
 ticketMasterFunc();
 
-// Search box description function //
 var descriptions = [
   {
     neighborhood: 'Barclay Downs',
@@ -483,12 +495,21 @@ var descriptions = [
     description: 'Myers Park is an affluent area with high-end boutiques, gourmet grocery stores and chic restaurants, especially on Selwyn Avenue. An international art collection is on display at Mint Museum Randolph, and the Discovery Place Nature museum has live animal exhibits. The Booty Loop cycling trail runs through the heart of the neighborhood, and the Wing Haven Garden and Bird Sanctuary features rose and herb gardens.'
   }
 ];
-
+// Search box description function //
 $('#neighborhoods').on('change', function (event) {
   for (var i = 0; i < descriptions.length; i++) {
     var value = event.target.value;
+
     if (value === descriptions[i].neighborhood) {
-      $('#description-text').text(descriptions[i].description);
+      $('.description-box').text('');
+      var descHeading = $('<p>').attr('id', 'description');
+      var icon = $('<i>').attr('class', 'fas fa-asterisk');
+      $('.description-box').append(descHeading);
+      descHeading.append(icon);
+      descHeading.append(' Description');
+      ($('<div>').attr('id', 'description-text').text(descriptions[i].description)).appendTo($('.description-box'));
+    } else if (value === 'default') {
+      $('.description-box').text('');
     }
   }
 });

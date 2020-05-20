@@ -128,7 +128,6 @@ legend {
   height: 50vh;
   margin-left: 15%;
 }
-
 .cardContainer {
   transition: 0.3s;
   width: 100%;
@@ -212,6 +211,7 @@ ul {
     height: 20vh;
     text-align: center;
     padding: 5px;
+
   }
   #map {
     margin-left: 0%;

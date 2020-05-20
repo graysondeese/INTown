@@ -55,6 +55,10 @@ header a {
   margin: 0 auto;
 }
 
+i #fas {
+  padding: 5px;
+}
+
 /* styles text inside Description section */
 #description-text {
   padding: 10px;
@@ -108,15 +112,26 @@ select {
   background-color: black;
 }
 
+.searchCritera {
+  width: 15%;
+  float: left;
+  height: 100%;
+  padding: 15px;
+  overflow: auto;
+}
+
+legend {
+  text-align: center;
+}
+
 #map {
   height: 50vh;
+  margin-left: 15%;
 }
 
 .cardContainer {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 100%;
-  background-color: white;
   display: flex;
   flex-direction: row;
   bottom: 0;
@@ -128,19 +143,19 @@ select {
   font-family: "Neucha", cursive;
 }
 
-i {
-  padding: 5px;
+.cardImg {
+  height: 2rem;
 }
 
 .card {
   width: 100%;
   height: 100%;
-  margin: 5px;
+  margin: 0px 5px 5px 5px;
   padding: 5px 15px;
   transition: 0.3s;
   overflow: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border: 1px solid black;
+  border: 1px solid gray;
 }
 
 .card-section {
@@ -168,25 +183,46 @@ ul {
 }
 
 
-/* setting media query rules for the cards on phones */
+/******************** setting media query rules for the cards on phones **********************/
 @media screen and (max-width: 700px) {
 .cardContainer {
   font-size: 1rem;
   flex-direction: column;
   display: flex; 
 }
-
 .card {
   width: 100%;
+  margin: 2px 0px;
 }
-
 .card-divider {
   text-align: left;
   float: left;
 }
 }
 
-/* media query for index.html */
+/********************** media query for the search critera *************************/
+@media screen and (max-width: 1100px) {
+  .legend {
+    text-align: left;
+    padding: 0%;
+  }
+  .searchCritera {
+    float: none;
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+    padding: 5px;
+  }
+  #map {
+    margin-left: 0%;
+  }
+  .cb {
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+/********************** media query for index.html *************************/
 @media screen and (max-width: 900px) {
   /* styles body */
 .landing-page {
@@ -245,7 +281,7 @@ header {
 }
   
   /* styles "Select a Neighborhood:" text */
-label {
+#select-neighborhood {
   font-size: 1rem;
   margin-bottom: 1rem;
 }

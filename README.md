@@ -10,10 +10,10 @@ The the listed items in each card is data pulled from either the Google maps API
 
 # Contributors
 ****
-[Helen Darden](https://github.com/hdarden)
-[Grayson Deese](https://github.com/graysondeese)
-[Emily Renegar](https://github.com/egrenegar)
-[Josh Rivera](https://github.com/JRivera-31)
+[Helen Darden](https://github.com/hdarden)<br>
+[Grayson Deese](https://github.com/graysondeese)<br>
+[Emily Renegar](https://github.com/egrenegar)<br>
+[Josh Rivera](https://github.com/JRivera-31)<br>
 
 ****
 # Link to Deployed Application:

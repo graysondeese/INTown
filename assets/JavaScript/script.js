@@ -191,6 +191,7 @@ function getRestaurants() {
 
   function handleResults(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+      $("ul#restaurantList").text("")
       for (var i = 1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
@@ -253,6 +254,7 @@ function getPopular() {
 
   function handleResults(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+      $("ul#popularList").text("")
       for (var i = 1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
@@ -289,7 +291,18 @@ function popularCheck() {
   if (popularCheck == true) {
     getPopular()
   } else {
+    $(".popular-card").hide()
     clearPopularMarkers()
+  }
+}
+
+// Check if events is checked
+function eventCheck() {
+  var eventCheck = document.getElementById("events").checked
+  if (eventCheck == true) {
+    return
+  } else {
+    $(".events-card").hide()
   }
 }
 
@@ -299,6 +312,7 @@ function restaurantCheck() {
   if (restaurantCheck == true) {
     getRestaurants()
   } else {
+    $(".restaurant-card").hide()
     clearRestaurantMarkers()
   }
 }
@@ -309,6 +323,7 @@ function outdoorCheck() {
   if (outdoorCheck == true) {
     getOutdoor()
   } else {
+    $(".outdoor-areas-card").hide()
     clearOutdoorMarkers()
   }
 }
@@ -335,6 +350,7 @@ function getOutdoor() {
 
   function handleResults(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+      $("ul#outdoorList").text("")
       for (var i = 1; i < 10; i++) {
         console.log(results[i])
         addMarker(results[i])
